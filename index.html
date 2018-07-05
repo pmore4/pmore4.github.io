@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <title>Learn D3 in 5 minutes</title>
 	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
   </head>
   <body>
     <p>Hello!</p>
+	<script>
+	d3.select('svg')
+	.append('rect')
+	.attr('x',50)
+	.attr('y',50)
+	.attr('width',200)
+	.attr('height',100)
+	.attr('fill','red');
+	</script>
   </body>
 </html>

@@ -3,65 +3,158 @@
 $("bcontent").empty();
 $('#option').hide('fast');
 $('#option2').hide('fast');
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
+var margin = {top: 30, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 520 - margin.top - margin.bottom;
 
-var parseDate = d3.time.format("%d-%b-%y").parse;
+/* 
+ * value accessor - returns the value to encode for a given data object.
+ * scale - maps value to a visual display encoding, such as a pixel position.	
+ * map function - maps from data value to display value
+ * axis - sets up axis
+ */ 
 
-var x = d3.time.scale()
-    .range([0, width]);
+// setup x 
+var xValue = function(d,i) { return d.DepthRange;}, // data -> value
+    xScale = d3.scale.linear().range([0, width-50]), // value -> display
+    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
-var y = d3.scale.linear()
-    .range([height, 0]);
+// setup y
+var yValue = function(d,i) { return d.index*5;}, // data -> value
+    yScale = d3.scale.linear().domain([0, 16]).range([height, 20]); // value -> display
+    yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yAxis = d3.svg.axis().scale(yScale).orient("left")
+	.ticks(16)
+	.tickFormat(function (d,i){
+		return [42934,42931,42927,42912,42901,42887,42880,42876,42874,42396,42394,42390,42374,42370,42368,42363][i];
+		});
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+// setup fill color
+var cValue = function(d) { return d.GoodReadings;},
+    color = d3.scale.linear().domain([40, 65, 80]).range(["red", "gray", "green"]);
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
 
-var line = d3.svg.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.val); });
-
+// add the graph canvas to the body of the webpage
 var svg = d3.select("bcontent").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("data-b.tsv", function(error, data) {
+// add the tooltip area to the webpage
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+// load data
+d3.csv("DepthRange.csv", function(error, data) {
+
+  // change string (from CSV) into number format
   data.forEach(function(d) {
-    d.date = parseDate(d.date);
-    d.val = +d.val;
+    d.DepthRange = +d.DepthRange;
+    d.Id = +d.Id;
+	d.BinCount= +d.BinCount;
+	d.GoodReadings = +d.GoodReadings;
+    console.log(d.BinCount/5000000);
   });
 
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain(d3.extent(data, function(d) { return d.val; }));
+  // don't want dots overlapping axis, so add in buffer to data domain
+  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
+  // x-axis
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Depth Range [meters]");
 
+  // y-axis
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
+      .attr("class", "label")
+      .attr("transform", "rotate(0)")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Price B ($)");
+      .text("StationId");
 
+  // draw dots
+  svg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", function(d) {return d.BinCount/5000000;})
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function(d) { return color(cValue(d));}) 
+      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+          tooltip.html(d.Id + "<br/> (" + xValue(d) 
+	        + ", " + yValue(d) + ")")
+               .style("left", (d3.event.pageX + 5) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
 
-  svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line);
+  // draw legend
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  // draw legend colored rectangles
+  legend.append("rect")
+      .attr("x", width - 18)
+	  .attr("y", 108)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  // draw legend text
+  legend.append("text")
+      .attr("x", width - 20)
+      .attr("y",119)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d+"%";})
+////////////////////////////////	  
+	svg.selectAll(".legend")
+      .data([8,50,100,150])
+	.enter().append("g")
+      .attr("class", "legend");
+      //.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  // draw legend colored rectangles
+  legend.append("circle")
+      .attr("cx", width )
+	  .attr("cy", 200)
+      .attr("r",function (d) {return d/3;})
+      .style("stroke","black")
+	  .style("fill","none")
+	  ;
+
+  // draw legend text
+  legend.append("text")
+      .attr("x", width-30)
+      .attr("y",200)
+      .attr("dy", "1em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d+"M";})
 });
-
 })(d3);

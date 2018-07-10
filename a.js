@@ -8,7 +8,7 @@ document.getElementById("p2").innerHTML = "";
 document.getElementById("p3").innerHTML = "";
 document.getElementById("p4").innerHTML = "";
 
-var margin = {top: 30, right: 20, bottom: 30, left: 40},
+var margin = {top: 30, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
     height = 520 - margin.top - margin.bottom;
 
@@ -156,9 +156,9 @@ d3.csv("DepthRange.csv", function(error, data) {
 
   // draw legend text
   legend.append("text")
-      .attr("x", function (d) {width - 20})
+      .attr("x", width-60)
       .attr("y",200)
-      .attr("dy", "1em")
+      .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d+"M";})
 });

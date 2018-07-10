@@ -51,7 +51,12 @@
                 </div>
             </div>
         </div>
-
+		<div id="option">
+			<input name="updateButton" 
+				   type="button" 
+				   value="Second" 
+				   onclick="updateData()" />
+		</div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
         <script src="https://d3js.org/d3.v3.js"></script>
         <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
@@ -72,11 +77,13 @@
             $(".btab").click(function() {
                 $.getScript("b.js");
             })
+			$('#option').hide('fast');
         </script>
 		<script>
             $(".ctab").click(function() {
                 $.getScript("c.js");
             })
+			$('#option').show('fast');
         </script>
     </body>
 </html>

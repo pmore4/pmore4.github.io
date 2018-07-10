@@ -1,6 +1,6 @@
 !(function (d3) {
 $("acontent").empty();
-
+$('#option').hide('fast');
 var margin = {top: 30, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 520 - margin.top - margin.bottom;

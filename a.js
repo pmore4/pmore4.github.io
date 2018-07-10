@@ -2,6 +2,12 @@
 $("acontent").empty();
 $('#option').hide('fast');
 $('#option2').hide('fast');
+
+document.getElementById("p1").innerHTML = "";
+document.getElementById("p2").innerHTML = "";
+document.getElementById("p3").innerHTML = "";
+document.getElementById("p4").innerHTML = "";
+
 var margin = {top: 30, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 520 - margin.top - margin.bottom;

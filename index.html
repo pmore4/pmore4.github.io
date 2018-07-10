@@ -35,7 +35,9 @@
                 <li class="active"><a class="atab" href="#a_tab" data-toggle="tab">Data Distribution</a></li>
                 <li><a class="btab" href="#b_tab" data-toggle="tab">Data Efficacy</a></li>
 				<li><a class="ctab" href="#c_tab" data-toggle="tab">Data Per ID</a></li>
+				<li><a class="dtab" href="#d_tab" data-toggle="tab">About Essay</a></li>				
             </ul>
+
             <div class="tab-content">
                 <div class="tab-pane active" id="a_tab">
                     <h1>A</h1>
@@ -49,7 +51,16 @@
                     <h1>C</h1>
                     <ccontent></ccontent>
                 </div>
+				<div class="tab-pane" id="d_tab">
+                    <h1>About Essay</h1>
+					<p id="p1"></p>
+					<p id="p2"></p>
+					<p id="p3"></p>
+					<p id="p4"></p>
+                    <dcontent></dcontent>
+                </div>
             </div>
+
         </div>
 		<div id="option">
 			<input name="updateButton" 
@@ -87,13 +98,16 @@
             $(".btab").click(function() {
                 $.getScript("b.js");
             })
-			$('#option').hide('fast');
         </script>
 		<script>
             $(".ctab").click(function() {
                 $.getScript("c.js");
             })
-			
+        </script>
+		<script>
+            $(".dtab").click(function() {
+                $.getScript("d.js");
+            })	
         </script>
     </body>
 </html>

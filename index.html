@@ -54,8 +54,18 @@
 		<div id="option">
 			<input name="updateButton" 
 				   type="button" 
-				   value="Second" 
+				   value="Shell" 
 				   onclick="updateData()" />
+			<input name="updateButton3" 
+				   type="button" 
+				   value="Noble" 
+				   onclick="updateData2()" />
+		</div>
+		<div id="option2">
+			<input name="updateButton2" 
+				   type="button" 
+				   value="Chevron" 
+				   onclick="updateData2()" />
 		</div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
         <script src="https://d3js.org/d3.v3.js"></script>
@@ -83,7 +93,7 @@
             $(".ctab").click(function() {
                 $.getScript("c.js");
             })
-			$('#option').show('fast');
+			
         </script>
     </body>
 </html>

@@ -1,11 +1,39 @@
-!(function (d3) {
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
 
-$("bcontent").empty();
-$('#option').hide('fast');
-$('#option2').hide('fast');
+body {
+  font: 10px sans-serif;
+}
 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
 
-var margin = {top: 40, right: 20, bottom: 80, left: 60},
+.dot {
+  stroke: #000;
+}
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 80px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+</style>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var margin = {top: 40, right: 20, bottom: 60, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -29,13 +57,13 @@ var yAxis = d3.axisLeft(y).ticks(16)
 		
 
 		
-var svg = d3.select("bcontent").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var tooltip = d3.select("bcontent").append("div")
+var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 	
@@ -151,4 +179,5 @@ d3.csv("DepthRange.csv", function(error, data) {
       .text(function(d) { return d+"M";})
 });
 
-})(d3);
+</script>
+</body>

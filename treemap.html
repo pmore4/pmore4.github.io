@@ -1,91 +1,83 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style> /* set the CSS */
-
-body { font: 12px Arial;}
-
-path { 
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
 }
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
+form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
-
+.node {
+  border: solid 1px white;
+  font: 10px sans-serif;
+  line-height: 12px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 2px;
+}
 </style>
-<body>
-
-<div id="option">
-    <input name="updateButton" 
-           type="button" 
-           value="Second" 
-           onclick="updateData()" />
-</div>
-<div id="option2">
-    <input name="updateToSecond" 
-           type="button" 
-           value="Third" 
-           onclick="updateto third()" />
-</div>
-<!-- load the d3.js library -->    
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
+<form>
+  <label><input type="radio" name="mode" value="size" checked> Size</label>
+  <label><input type="radio" name="mode" value="count"> Count</label>
+</form>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
+'use strict';
 
-var diameter = 500, //max size of the bubbles
-    color    = d3.scale.category10(); //color category
+const margin = {top: 40, right: 10, bottom: 10, left: 10},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom,
+      color = d3.scaleOrdinal().range(d3.schemeCategory10);
 
-var bubble = d3.layout.pack()
-    .sort(null)
-    .size([diameter, diameter])
-    .padding(1.5);
+const treemap = d3.treemap().size([width, height]);
 
-var svg = d3.select("body")
-    .append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter)
-    .attr("class", "bubble");
+const div = d3.select("body").append("div")
+    .style("position", "relative")
+    .style("width", (width + margin.left + margin.right) + "px")
+    .style("height", (height + margin.top + margin.bottom) + "px")
+    .style("left", margin.left + "px")
+    .style("top", margin.top + "px");
 
-d3.csv("DataDistribution.csv", function(error, data){
+d3.json("treemap.json", function(error, data) {
+  if (error) throw error;
 
-    //convert numerical values from strings to numbers
-    data = data.map(function(d){ d.value = +d.BinCount; return d; });
+  const root = d3.hierarchy(data, (d) => d.children)
+    .sum((d) => d.size);
 
-    //bubbles needs very specific format, convert data to this.
-    var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
+  const tree = treemap(root);
 
-    //setup the chart
-    var bubbles = svg.append("g")
-        .attr("transform", "translate(0,0)")
-        .selectAll(".bubble")
-        .data(nodes)
-        .enter();
+  const node = div.datum(root).selectAll(".node")
+      .data(tree.leaves())
+    .enter().append("div")
+      .attr("class", "node")
+      .style("left", (d) => d.x0 + "px")
+      .style("top", (d) => d.y0 + "px")
+      .style("width", (d) => Math.max(0, d.x1 - d.x0 - 1) + "px")
+      .style("height", (d) => Math.max(0, d.y1 - d.y0  - 1) + "px")
+      .style("background", (d) => color(d.parent.data.name))
+      .text((d) => "Station ID "+ d.data.name +" Count "+ d.data.size);
 
-    //create the bubbles
-    bubbles.append("circle")
-        .attr("r", function(d){ return d.r; })
-        .attr("cx", function(d){ return d.x; })
-        .attr("cy", function(d){ return d.y; })
-        .style("fill", function(d) { return color(d["Owner"]); });
+  d3.selectAll("input").on("change", function change() {
+    const value = this.value === "count"
+        ? (d) => { return d.size ? 1 : 0;}
+        : (d) => { return d.size; };
 
-    //format the text for each bubble
-    bubbles.append("text")
-        .attr("x", function(d){ return d.x; })
-        .attr("y", function(d){ return d.y + 5; })
-        .attr("text-anchor", "middle")
-        .text(function(d){ return d["Id Num"]; })
-        .style({
-            "fill":"white", 
-            "font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
-            "font-size": "12px"
-        });
-})
+    const newRoot = d3.hierarchy(data, (d) => d.children)
+      .sum(value);
+
+    node.data(treemap(newRoot).leaves())
+      .transition()
+        .duration(1500)
+        .style("left", (d) => d.x0 + "px")
+        .style("top", (d) => d.y0 + "px")
+        .style("width", (d) => Math.max(0, d.x1 - d.x0 - 1) + "px")
+        .style("height", (d) => Math.max(0, d.y1 - d.y0  - 1) + "px")
+  });
+});
 
 </script>
-</body>

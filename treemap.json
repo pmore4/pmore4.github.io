@@ -1,0 +1,46 @@
+  {
+   "name": "Owners",
+   "children": [
+    {
+     "name": "Shell",
+     "children": [
+      {"name": "42874", "size": 120022},
+      {"name": "42394", "size": 1910090},
+      {"name": "42390", "size": 1767240},
+      {"name": "42363", "size": 1868550}
+     ]
+    },
+    {
+     "name": "BP",
+     "children": [
+      {"name": "42370", "size": 257712},
+      {"name": "42374", "size": 608672},
+      {"name": "42880", "size": 1414600},
+      {"name": "42887", "size": 1522860},
+      {"name": "42901", "size": 414250}
+     ]
+    },
+    {
+     "name": "Conoco",
+     "children": [
+      {"name": "42368", "size": 356880}
+     ]
+    },
+    {
+     "name": "Noble",
+     "children": [
+      {"name": "42931", "size": 259613},
+	  {"name": "42927", "size": 557115}
+     ]
+    },
+    {
+     "name": "Chevron",
+     "children": [
+      {"name": "42934", "size": 1600365},
+	  {"name": "42912", "size": 1569165},
+	  {"name": "42876", "size": 1552330},
+	  {"name": "42396", "size": 436096}
+     ]
+    }
+   ]
+  }

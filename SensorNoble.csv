@@ -1,0 +1,19 @@
+﻿Id Num,Measure Names,Month of Date,Avg. %GoodReadings,Avg. Depth Range
+42927,Avg. %GoodReadings,January,78.334459916,
+42927,Avg. %GoodReadings,February,83.630909480,
+42927,Avg. %GoodReadings,March,77.192729024,
+42931,Avg. %GoodReadings,January,83.181414357,
+42931,Avg. %GoodReadings,March,50,
+42931,Avg. %GoodReadings,July,89.132188967,
+42931,Avg. %GoodReadings,August,88.617332526,
+42931,Avg. %GoodReadings,November,0.231492362,
+42931,Avg. %GoodReadings,December,0.870997733,
+42927,Avg. Depth Range,January,,804.872709013
+42927,Avg. Depth Range,February,,858.611293998
+42927,Avg. Depth Range,March,,790.234741784
+42931,Avg. Depth Range,January,,522.063113006
+42931,Avg. Depth Range,March,,480
+42931,Avg. Depth Range,July,,881.201877934
+42931,Avg. Depth Range,August,,876.164648910
+42931,Avg. Depth Range,November,,47.342173913
+42931,Avg. Depth Range,December,,58.620700060

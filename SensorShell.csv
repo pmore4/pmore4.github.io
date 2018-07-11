@@ -1,0 +1,51 @@
+﻿Id Num,Measure Names,Month of Date,Avg. %GoodReadings,Avg. Depth Range
+42363,Avg. %GoodReadings,January,73.396795623,
+42363,Avg. %GoodReadings,February,64.801422042,
+42363,Avg. %GoodReadings,March,74.587932470,
+42363,Avg. %GoodReadings,April,76.759329367,
+42363,Avg. %GoodReadings,May,75.453870063,
+42363,Avg. %GoodReadings,June,66.225760591,
+42363,Avg. %GoodReadings,July,77.547892720,
+42390,Avg. %GoodReadings,January,58.906736538,
+42390,Avg. %GoodReadings,February,59.485196274,
+42390,Avg. %GoodReadings,March,61.432531655,
+42390,Avg. %GoodReadings,April,64.126768674,
+42390,Avg. %GoodReadings,May,63.331087152,
+42390,Avg. %GoodReadings,June,65.706864248,
+42390,Avg. %GoodReadings,July,64.336117741,
+42394,Avg. %GoodReadings,January,74.251170299,
+42394,Avg. %GoodReadings,February,74.138608205,
+42394,Avg. %GoodReadings,March,74.231423710,
+42394,Avg. %GoodReadings,April,74.279378418,
+42394,Avg. %GoodReadings,May,74.276987718,
+42394,Avg. %GoodReadings,June,74.276344410,
+42394,Avg. %GoodReadings,July,74.233700254,
+42874,Avg. %GoodReadings,January,41.091066532,
+42874,Avg. %GoodReadings,August,92.652652197,
+42874,Avg. %GoodReadings,September,89.187629400,
+42874,Avg. %GoodReadings,October,93.913043478,
+42363,Avg. Depth Range,January,,899.539249707
+42363,Avg. Depth Range,February,,906.113026917
+42363,Avg. Depth Range,March,,910.633658869
+42363,Avg. Depth Range,April,,911.896160087
+42363,Avg. Depth Range,May,,908.662269729
+42363,Avg. Depth Range,June,,840.067671311
+42363,Avg. Depth Range,July,,914.666666667
+42390,Avg. Depth Range,January,,687.322852586
+42390,Avg. Depth Range,February,,694.371257485
+42390,Avg. Depth Range,March,,717.334232412
+42390,Avg. Depth Range,April,,749.980256663
+42390,Avg. Depth Range,May,,741.536388140
+42390,Avg. Depth Range,June,,769.836484415
+42390,Avg. Depth Range,July,,752.486873508
+42394,Avg. Depth Range,January,,815.721581921
+42394,Avg. Depth Range,February,,814.744963759
+42394,Avg. Depth Range,March,,815.596142938
+42394,Avg. Depth Range,April,,816
+42394,Avg. Depth Range,May,,815.913122172
+42394,Avg. Depth Range,June,,815.921293043
+42394,Avg. Depth Range,July,,815.837425910
+42874,Avg. Depth Range,January,,424.719887430
+42874,Avg. Depth Range,August,,652.303823992
+42874,Avg. Depth Range,September,,635.692708333
+42874,Avg. Depth Range,October,,1022.747826087

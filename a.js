@@ -4,12 +4,9 @@ $("acontent").empty();
 $('#option').hide('fast');
 $('#option2').hide('fast');
 
-document.getElementById("p1").innerHTML = "";
-document.getElementById("p2").innerHTML = "";
-document.getElementById("p3").innerHTML = "";
-document.getElementById("p4").innerHTML = "";
 
-var diameter = 500, //max size of the bubbles
+
+var diameter = 1000, //max size of the bubbles
     color    = d3.scale.category10(); //color category
 
 var bubble = d3.layout.pack()
@@ -27,7 +24,7 @@ d3.csv("DataDistribution.csv", function(error, data){
 
     //convert numerical values from strings to numbers
     data = data.map(function(d){ d.value = +d.BinCount; return d; });
-
+	
     //bubbles needs very specific format, convert data to this.
     var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
 
@@ -44,7 +41,7 @@ d3.csv("DataDistribution.csv", function(error, data){
         .attr("cx", function(d){ return d.x; })
         .attr("cy", function(d){ return d.y; })
         .style("fill", function(d) { return color(d["Owner"]); });
-
+	//console.log(d.r);
     //format the text for each bubble
     bubbles.append("text")
         .attr("x", function(d){ return d.x; })

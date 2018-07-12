@@ -1,237 +1,237 @@
-﻿Id Num,Measure Names,Month of Date,Avg. %GoodReadings,Avg. Depth Range
-42363,Avg. %GoodReadings,January,73.396795623,
-42363,Avg. %GoodReadings,February,64.801422042,
-42363,Avg. %GoodReadings,March,74.587932470,
-42363,Avg. %GoodReadings,April,76.759329367,
-42363,Avg. %GoodReadings,May,75.453870063,
-42363,Avg. %GoodReadings,June,66.225760591,
-42363,Avg. %GoodReadings,July,77.547892720,
-42368,Avg. %GoodReadings,January,90.892230026,
-42368,Avg. %GoodReadings,February,87.270459082,
-42368,Avg. %GoodReadings,June,91.031626506,
-42368,Avg. %GoodReadings,July,91.320382883,
-42368,Avg. %GoodReadings,August,93.349744712,
-42370,Avg. %GoodReadings,June,96.562734786,
-42370,Avg. %GoodReadings,July,96.365942960,
-42370,Avg. %GoodReadings,August,97.848788638,
-42370,Avg. %GoodReadings,October,95.479049253,
-42370,Avg. %GoodReadings,November,94.691837683,
-42370,Avg. %GoodReadings,December,95.093487866,
-42374,Avg. %GoodReadings,January,69.306930693,
-42374,Avg. %GoodReadings,February,70.088838839,
-42374,Avg. %GoodReadings,March,70.511877828,
-42374,Avg. %GoodReadings,April,68.088440111,
-42374,Avg. %GoodReadings,May,69.302634555,
-42374,Avg. %GoodReadings,June,69.602405418,
-42374,Avg. %GoodReadings,July,66.451116682,
-42374,Avg. %GoodReadings,August,70.042155425,
-42374,Avg. %GoodReadings,October,69.621342513,
-42374,Avg. %GoodReadings,November,66.623650868,
-42374,Avg. %GoodReadings,December,70.405657182,
-42390,Avg. %GoodReadings,January,58.906736538,
-42390,Avg. %GoodReadings,February,59.485196274,
-42390,Avg. %GoodReadings,March,61.432531655,
-42390,Avg. %GoodReadings,April,64.126768674,
-42390,Avg. %GoodReadings,May,63.331087152,
-42390,Avg. %GoodReadings,June,65.706864248,
-42390,Avg. %GoodReadings,July,64.336117741,
-42394,Avg. %GoodReadings,January,74.251170299,
-42394,Avg. %GoodReadings,February,74.138608205,
-42394,Avg. %GoodReadings,March,74.231423710,
-42394,Avg. %GoodReadings,April,74.279378418,
-42394,Avg. %GoodReadings,May,74.276987718,
-42394,Avg. %GoodReadings,June,74.276344410,
-42394,Avg. %GoodReadings,July,74.233700254,
-42396,Avg. %GoodReadings,April,87.418687167,
-42396,Avg. %GoodReadings,May,87.5,
-42396,Avg. %GoodReadings,June,87.498557248,
-42396,Avg. %GoodReadings,July,87.465556112,
-42396,Avg. %GoodReadings,August,87.016908213,
-42396,Avg. %GoodReadings,October,86.456036384,
-42396,Avg. %GoodReadings,November,87.40234375,
-42396,Avg. %GoodReadings,December,87.469390027,
-42874,Avg. %GoodReadings,January,41.091066532,
-42874,Avg. %GoodReadings,August,92.652652197,
-42874,Avg. %GoodReadings,September,89.187629400,
-42874,Avg. %GoodReadings,October,93.913043478,
-42876,Avg. %GoodReadings,January,41.435897436,
-42876,Avg. %GoodReadings,February,52.261240695,
-42876,Avg. %GoodReadings,March,46.505205321,
-42876,Avg. %GoodReadings,April,50.278763666,
-42876,Avg. %GoodReadings,May,54.144254748,
-42876,Avg. %GoodReadings,June,52.588994417,
-42880,Avg. %GoodReadings,January,37.680770092,
-42880,Avg. %GoodReadings,February,34.935348031,
-42880,Avg. %GoodReadings,March,36.6272,
-42880,Avg. %GoodReadings,April,39.937182448,
-42880,Avg. %GoodReadings,May,40.143209877,
-42880,Avg. %GoodReadings,June,42.013473457,
-42880,Avg. %GoodReadings,July,43.411528822,
-42880,Avg. %GoodReadings,August,40.090582960,
-42880,Avg. %GoodReadings,September,40.201342282,
-42887,Avg. %GoodReadings,January,95.085030123,
-42887,Avg. %GoodReadings,February,93.021775544,
-42887,Avg. %GoodReadings,March,94.987525516,
-42887,Avg. %GoodReadings,April,94.337442816,
-42887,Avg. %GoodReadings,May,96.719910011,
-42887,Avg. %GoodReadings,June,98.779075029,
-42887,Avg. %GoodReadings,July,94.640258084,
-42887,Avg. %GoodReadings,August,97.509022407,
-42887,Avg. %GoodReadings,September,96.751337966,
-42887,Avg. %GoodReadings,October,92.762513817,
-42887,Avg. %GoodReadings,November,93.791166513,
-42901,Avg. %GoodReadings,January,40.231182796,
-42901,Avg. %GoodReadings,February,30.579957356,
-42901,Avg. %GoodReadings,March,14.825531915,
-42901,Avg. %GoodReadings,April,10.456740443,
-42901,Avg. %GoodReadings,May,18.888597641,
-42901,Avg. %GoodReadings,June,50.462121212,
-42901,Avg. %GoodReadings,July,14.645909646,
-42901,Avg. %GoodReadings,August,3.210912907,
-42901,Avg. %GoodReadings,September,7.210378682,
-42901,Avg. %GoodReadings,October,5.171501272,
-42901,Avg. %GoodReadings,November,0.582178218,
-42901,Avg. %GoodReadings,December,0.654627540,
-42912,Avg. %GoodReadings,January,51.870744329,
-42912,Avg. %GoodReadings,February,51.738015608,
-42912,Avg. %GoodReadings,March,57.761420464,
-42912,Avg. %GoodReadings,April,52.773382269,
-42912,Avg. %GoodReadings,May,56.734527234,
-42912,Avg. %GoodReadings,June,55.336676218,
-42912,Avg. %GoodReadings,July,61.385702637,
-42912,Avg. %GoodReadings,August,60.949839134,
-42912,Avg. %GoodReadings,September,50.332396756,
-42912,Avg. %GoodReadings,October,60.380566802,
-42927,Avg. %GoodReadings,January,78.334459916,
-42927,Avg. %GoodReadings,February,83.630909480,
-42927,Avg. %GoodReadings,March,77.192729024,
-42931,Avg. %GoodReadings,January,83.181414357,
-42931,Avg. %GoodReadings,March,50,
-42931,Avg. %GoodReadings,July,89.132188967,
-42931,Avg. %GoodReadings,August,88.617332526,
-42931,Avg. %GoodReadings,November,0.231492362,
-42931,Avg. %GoodReadings,December,0.870997733,
-42934,Avg. %GoodReadings,January,43.028955569,
-42934,Avg. %GoodReadings,February,36.471112101,
-42934,Avg. %GoodReadings,March,43.152089919,
-42934,Avg. %GoodReadings,April,45.591351738,
-42934,Avg. %GoodReadings,May,43.483407387,
-42934,Avg. %GoodReadings,June,38.423234768,
-42363,Avg. Depth Range,January,,899.539249707
-42363,Avg. Depth Range,February,,906.113026917
-42363,Avg. Depth Range,March,,910.633658869
-42363,Avg. Depth Range,April,,911.896160087
-42363,Avg. Depth Range,May,,908.662269729
-42363,Avg. Depth Range,June,,840.067671311
-42363,Avg. Depth Range,July,,914.666666667
-42368,Avg. Depth Range,January,,1233.222124671
-42368,Avg. Depth Range,February,,1202.395209581
-42368,Avg. Depth Range,June,,1246.843373494
-42368,Avg. Depth Range,July,,1221.722522523
-42368,Avg. Depth Range,August,,1238.196936543
-42370,Avg. Depth Range,June,,532.051089406
-42370,Avg. Depth Range,July,,530.917266187
-42370,Avg. Depth Range,August,,534.181286550
-42370,Avg. Depth Range,October,,526.929674099
-42370,Avg. Depth Range,November,,524.909344491
-42370,Avg. Depth Range,December,,526.526221425
-42374,Avg. Depth Range,January,,340.530693069
-42374,Avg. Depth Range,February,,346.570570571
-42374,Avg. Depth Range,March,,348.626244344
-42374,Avg. Depth Range,April,,341.260677809
-42374,Avg. Depth Range,May,,344.814111262
-42374,Avg. Depth Range,June,,342.000934143
-42374,Avg. Depth Range,July,,331.653600729
-42374,Avg. Depth Range,August,,344.375366569
-42374,Avg. Depth Range,October,,341.370051635
-42374,Avg. Depth Range,November,,329.332050680
-42374,Avg. Depth Range,December,,346.738934056
-42390,Avg. Depth Range,January,,687.322852586
-42390,Avg. Depth Range,February,,694.371257485
-42390,Avg. Depth Range,March,,717.334232412
-42390,Avg. Depth Range,April,,749.980256663
-42390,Avg. Depth Range,May,,741.536388140
-42390,Avg. Depth Range,June,,769.836484415
-42390,Avg. Depth Range,July,,752.486873508
-42394,Avg. Depth Range,January,,815.721581921
-42394,Avg. Depth Range,February,,814.744963759
-42394,Avg. Depth Range,March,,815.596142938
-42394,Avg. Depth Range,April,,816
-42394,Avg. Depth Range,May,,815.913122172
-42394,Avg. Depth Range,June,,815.921293043
-42394,Avg. Depth Range,July,,815.837425910
-42396,Avg. Depth Range,April,,863.167356594
-42396,Avg. Depth Range,May,,864
-42396,Avg. Depth Range,June,,863.985226223
-42396,Avg. Depth Range,July,,863.663326653
-42396,Avg. Depth Range,August,,859.053140097
-42396,Avg. Depth Range,October,,853.309812569
-42396,Avg. Depth Range,November,,863
-42396,Avg. Depth Range,December,,863.686553874
-42874,Avg. Depth Range,January,,424.719887430
-42874,Avg. Depth Range,August,,652.303823992
-42874,Avg. Depth Range,September,,635.692708333
-42874,Avg. Depth Range,October,,1022.747826087
-42876,Avg. Depth Range,January,,427.014346290
-42876,Avg. Depth Range,February,,538.700387097
-42876,Avg. Depth Range,March,,483.168679511
-42876,Avg. Depth Range,April,,531.937259448
-42876,Avg. Depth Range,May,,560.929900249
-42876,Avg. Depth Range,June,,543.155199497
-42880,Avg. Depth Range,January,,456.514349675
-42880,Avg. Depth Range,February,,425.756650978
-42880,Avg. Depth Range,March,,445.394468571
-42880,Avg. Depth Range,April,,483.774411085
-42880,Avg. Depth Range,May,,485.694388328
-42880,Avg. Depth Range,June,,508.348208030
-42880,Avg. Depth Range,July,,525.363358396
-42880,Avg. Depth Range,August,,485.648878924
-42880,Avg. Depth Range,September,,486.902116675
-42887,Avg. Depth Range,January,,882.390299703
-42887,Avg. Depth Range,February,,862.978894472
-42887,Avg. Depth Range,March,,881.259242459
-42887,Avg. Depth Range,April,,874.889974413
-42887,Avg. Depth Range,May,,899.333183352
-42887,Avg. Depth Range,June,,916.861254412
-42887,Avg. Depth Range,July,,877.245104659
-42887,Avg. Depth Range,August,,904.908982748
-42887,Avg. Depth Range,September,,897.288281812
-42887,Avg. Depth Range,October,,860.202747513
-42887,Avg. Depth Range,November,,868.668513389
-42901,Avg. Depth Range,January,,488.992204301
-42901,Avg. Depth Range,February,,379.968443497
-42901,Avg. Depth Range,March,,200.458723404
-42901,Avg. Depth Range,April,,150.434406439
-42901,Avg. Depth Range,May,,246.553211009
-42901,Avg. Depth Range,June,,605.998484848
-42901,Avg. Depth Range,July,,195.699755800
-42901,Avg. Depth Range,August,,66.707030430
-42901,Avg. Depth Range,September,,113.306661992
-42901,Avg. Depth Range,October,,89.768193384
-42901,Avg. Depth Range,November,,37.700792079
-42901,Avg. Depth Range,December,,38.403837472
-42912,Avg. Depth Range,January,,530.902250885
-42912,Avg. Depth Range,February,,527.397101449
-42912,Avg. Depth Range,March,,592.527647918
-42912,Avg. Depth Range,April,,555.126906531
-42912,Avg. Depth Range,May,,587.620747889
-42912,Avg. Depth Range,June,,577.214255014
-42912,Avg. Depth Range,July,,630.016537102
-42912,Avg. Depth Range,August,,631.995247148
-42912,Avg. Depth Range,September,,527.250172295
-42912,Avg. Depth Range,October,,614.4
-42927,Avg. Depth Range,January,,804.872709013
-42927,Avg. Depth Range,February,,858.611293998
-42927,Avg. Depth Range,March,,790.234741784
-42931,Avg. Depth Range,January,,522.063113006
-42931,Avg. Depth Range,March,,480
-42931,Avg. Depth Range,July,,881.201877934
-42931,Avg. Depth Range,August,,876.164648910
-42931,Avg. Depth Range,November,,47.342173913
-42931,Avg. Depth Range,December,,58.620700060
-42934,Avg. Depth Range,January,,454.794538006
-42934,Avg. Depth Range,February,,387.727930535
-42934,Avg. Depth Range,March,,464.898082192
-42934,Avg. Depth Range,April,,494.482555168
-42934,Avg. Depth Range,May,,482.444787906
-42934,Avg. Depth Range,June,,443.020218878
+Id Num	Measure Names	Month of Date	Avg. %GoodReadings	Avg. Depth Range
+42363	Avg. %GoodReadings	January	73.39679562	
+42363	Avg. %GoodReadings	February	64.80142204	
+42363	Avg. %GoodReadings	March	74.58793247	
+42363	Avg. %GoodReadings	April	76.75932937	
+42363	Avg. %GoodReadings	May	75.45387006	
+42363	Avg. %GoodReadings	June	66.22576059	
+42363	Avg. %GoodReadings	July	77.54789272	
+42368	Avg. %GoodReadings	January	90.89223003	
+42368	Avg. %GoodReadings	February	87.27045908	
+42368	Avg. %GoodReadings	June	91.03162651	
+42368	Avg. %GoodReadings	July	91.32038288	
+42368	Avg. %GoodReadings	August	93.34974471	
+42370	Avg. %GoodReadings	June	96.56273479	
+42370	Avg. %GoodReadings	July	96.36594296	
+42370	Avg. %GoodReadings	August	97.84878864	
+42370	Avg. %GoodReadings	October	95.47904925	
+42370	Avg. %GoodReadings	November	94.69183768	
+42370	Avg. %GoodReadings	December	95.09348787	
+42374	Avg. %GoodReadings	January	69.30693069	
+42374	Avg. %GoodReadings	February	70.08883884	
+42374	Avg. %GoodReadings	March	70.51187783	
+42374	Avg. %GoodReadings	April	68.08844011	
+42374	Avg. %GoodReadings	May	69.30263456	
+42374	Avg. %GoodReadings	June	69.60240542	
+42374	Avg. %GoodReadings	July	66.45111668	
+42374	Avg. %GoodReadings	August	70.04215543	
+42374	Avg. %GoodReadings	October	69.62134251	
+42374	Avg. %GoodReadings	November	66.62365087	
+42374	Avg. %GoodReadings	December	70.40565718	
+42390	Avg. %GoodReadings	January	58.90673654	
+42390	Avg. %GoodReadings	February	59.48519627	
+42390	Avg. %GoodReadings	March	61.43253166	
+42390	Avg. %GoodReadings	April	64.12676867	
+42390	Avg. %GoodReadings	May	63.33108715	
+42390	Avg. %GoodReadings	June	65.70686425	
+42390	Avg. %GoodReadings	July	64.33611774	
+42394	Avg. %GoodReadings	January	74.2511703	
+42394	Avg. %GoodReadings	February	74.13860821	
+42394	Avg. %GoodReadings	March	74.23142371	
+42394	Avg. %GoodReadings	April	74.27937842	
+42394	Avg. %GoodReadings	May	74.27698772	
+42394	Avg. %GoodReadings	June	74.27634441	
+42394	Avg. %GoodReadings	July	74.23370025	
+42396	Avg. %GoodReadings	April	87.41868717	
+42396	Avg. %GoodReadings	May	87.5	
+42396	Avg. %GoodReadings	June	87.49855725	
+42396	Avg. %GoodReadings	July	87.46555611	
+42396	Avg. %GoodReadings	August	87.01690821	
+42396	Avg. %GoodReadings	October	86.45603638	
+42396	Avg. %GoodReadings	November	87.40234375	
+42396	Avg. %GoodReadings	December	87.46939003	
+42874	Avg. %GoodReadings	January	41.09106653	
+42874	Avg. %GoodReadings	August	92.6526522	
+42874	Avg. %GoodReadings	September	89.1876294	
+42874	Avg. %GoodReadings	October	93.91304348	
+42876	Avg. %GoodReadings	January	41.43589744	
+42876	Avg. %GoodReadings	February	52.2612407	
+42876	Avg. %GoodReadings	March	46.50520532	
+42876	Avg. %GoodReadings	April	50.27876367	
+42876	Avg. %GoodReadings	May	54.14425475	
+42876	Avg. %GoodReadings	June	52.58899442	
+42880	Avg. %GoodReadings	January	37.68077009	
+42880	Avg. %GoodReadings	February	34.93534803	
+42880	Avg. %GoodReadings	March	36.6272	
+42880	Avg. %GoodReadings	April	39.93718245	
+42880	Avg. %GoodReadings	May	40.14320988	
+42880	Avg. %GoodReadings	June	42.01347346	
+42880	Avg. %GoodReadings	July	43.41152882	
+42880	Avg. %GoodReadings	August	40.09058296	
+42880	Avg. %GoodReadings	September	40.20134228	
+42887	Avg. %GoodReadings	January	95.08503012	
+42887	Avg. %GoodReadings	February	93.02177554	
+42887	Avg. %GoodReadings	March	94.98752552	
+42887	Avg. %GoodReadings	April	94.33744282	
+42887	Avg. %GoodReadings	May	96.71991001	
+42887	Avg. %GoodReadings	June	98.77907503	
+42887	Avg. %GoodReadings	July	94.64025808	
+42887	Avg. %GoodReadings	August	97.50902241	
+42887	Avg. %GoodReadings	September	96.75133797	
+42887	Avg. %GoodReadings	October	92.76251382	
+42887	Avg. %GoodReadings	November	93.79116651	
+42901	Avg. %GoodReadings	January	40.2311828	
+42901	Avg. %GoodReadings	February	30.57995736	
+42901	Avg. %GoodReadings	March	14.82553192	
+42901	Avg. %GoodReadings	April	10.45674044	
+42901	Avg. %GoodReadings	May	18.88859764	
+42901	Avg. %GoodReadings	June	50.46212121	
+42901	Avg. %GoodReadings	July	14.64590965	
+42901	Avg. %GoodReadings	August	3.210912907	
+42901	Avg. %GoodReadings	September	7.210378682	
+42901	Avg. %GoodReadings	October	5.171501272	
+42901	Avg. %GoodReadings	November	0.582178218	
+42901	Avg. %GoodReadings	December	0.65462754	
+42912	Avg. %GoodReadings	January	51.87074433	
+42912	Avg. %GoodReadings	February	51.73801561	
+42912	Avg. %GoodReadings	March	57.76142046	
+42912	Avg. %GoodReadings	April	52.77338227	
+42912	Avg. %GoodReadings	May	56.73452723	
+42912	Avg. %GoodReadings	June	55.33667622	
+42912	Avg. %GoodReadings	July	61.38570264	
+42912	Avg. %GoodReadings	August	60.94983913	
+42912	Avg. %GoodReadings	September	50.33239676	
+42912	Avg. %GoodReadings	October	60.3805668	
+42927	Avg. %GoodReadings	January	78.33445992	
+42927	Avg. %GoodReadings	February	83.63090948	
+42927	Avg. %GoodReadings	March	77.19272902	
+42931	Avg. %GoodReadings	January	83.18141436	
+42931	Avg. %GoodReadings	March	50	
+42931	Avg. %GoodReadings	July	89.13218897	
+42931	Avg. %GoodReadings	August	88.61733253	
+42931	Avg. %GoodReadings	November	0.231492362	
+42931	Avg. %GoodReadings	December	0.870997733	
+42934	Avg. %GoodReadings	January	43.02895557	
+42934	Avg. %GoodReadings	February	36.4711121	
+42934	Avg. %GoodReadings	March	43.15208992	
+42934	Avg. %GoodReadings	April	45.59135174	
+42934	Avg. %GoodReadings	May	43.48340739	
+42934	Avg. %GoodReadings	June	38.42323477	
+42363	Avg. Depth Range	January		899.5392497
+42363	Avg. Depth Range	February		906.1130269
+42363	Avg. Depth Range	March		910.6336589
+42363	Avg. Depth Range	April		911.8961601
+42363	Avg. Depth Range	May		908.6622697
+42363	Avg. Depth Range	June		840.0676713
+42363	Avg. Depth Range	July		914.6666667
+42368	Avg. Depth Range	January		1233.222125
+42368	Avg. Depth Range	February		1202.39521
+42368	Avg. Depth Range	June		1246.843373
+42368	Avg. Depth Range	July		1221.722523
+42368	Avg. Depth Range	August		1238.196937
+42370	Avg. Depth Range	June		532.0510894
+42370	Avg. Depth Range	July		530.9172662
+42370	Avg. Depth Range	August		534.1812866
+42370	Avg. Depth Range	October		526.9296741
+42370	Avg. Depth Range	November		524.9093445
+42370	Avg. Depth Range	December		526.5262214
+42374	Avg. Depth Range	January		340.5306931
+42374	Avg. Depth Range	February		346.5705706
+42374	Avg. Depth Range	March		348.6262443
+42374	Avg. Depth Range	April		341.2606778
+42374	Avg. Depth Range	May		344.8141113
+42374	Avg. Depth Range	June		342.0009341
+42374	Avg. Depth Range	July		331.6536007
+42374	Avg. Depth Range	August		344.3753666
+42374	Avg. Depth Range	October		341.3700516
+42374	Avg. Depth Range	November		329.3320507
+42374	Avg. Depth Range	December		346.7389341
+42390	Avg. Depth Range	January		687.3228526
+42390	Avg. Depth Range	February		694.3712575
+42390	Avg. Depth Range	March		717.3342324
+42390	Avg. Depth Range	April		749.9802567
+42390	Avg. Depth Range	May		741.5363881
+42390	Avg. Depth Range	June		769.8364844
+42390	Avg. Depth Range	July		752.4868735
+42394	Avg. Depth Range	January		815.7215819
+42394	Avg. Depth Range	February		814.7449638
+42394	Avg. Depth Range	March		815.5961429
+42394	Avg. Depth Range	April		816
+42394	Avg. Depth Range	May		815.9131222
+42394	Avg. Depth Range	June		815.921293
+42394	Avg. Depth Range	July		815.8374259
+42396	Avg. Depth Range	April		863.1673566
+42396	Avg. Depth Range	May		864
+42396	Avg. Depth Range	June		863.9852262
+42396	Avg. Depth Range	July		863.6633267
+42396	Avg. Depth Range	August		859.0531401
+42396	Avg. Depth Range	October		853.3098126
+42396	Avg. Depth Range	November		863
+42396	Avg. Depth Range	December		863.6865539
+42874	Avg. Depth Range	January		424.7198874
+42874	Avg. Depth Range	August		652.303824
+42874	Avg. Depth Range	September		635.6927083
+42874	Avg. Depth Range	October		1022.747826
+42876	Avg. Depth Range	January		427.0143463
+42876	Avg. Depth Range	February		538.7003871
+42876	Avg. Depth Range	March		483.1686795
+42876	Avg. Depth Range	April		531.9372594
+42876	Avg. Depth Range	May		560.9299002
+42876	Avg. Depth Range	June		543.1551995
+42880	Avg. Depth Range	January		456.5143497
+42880	Avg. Depth Range	February		425.756651
+42880	Avg. Depth Range	March		445.3944686
+42880	Avg. Depth Range	April		483.7744111
+42880	Avg. Depth Range	May		485.6943883
+42880	Avg. Depth Range	June		508.348208
+42880	Avg. Depth Range	July		525.3633584
+42880	Avg. Depth Range	August		485.6488789
+42880	Avg. Depth Range	September		486.9021167
+42887	Avg. Depth Range	January		882.3902997
+42887	Avg. Depth Range	February		862.9788945
+42887	Avg. Depth Range	March		881.2592425
+42887	Avg. Depth Range	April		874.8899744
+42887	Avg. Depth Range	May		899.3331834
+42887	Avg. Depth Range	June		916.8612544
+42887	Avg. Depth Range	July		877.2451047
+42887	Avg. Depth Range	August		904.9089827
+42887	Avg. Depth Range	September		897.2882818
+42887	Avg. Depth Range	October		860.2027475
+42887	Avg. Depth Range	November		868.6685134
+42901	Avg. Depth Range	January		488.9922043
+42901	Avg. Depth Range	February		379.9684435
+42901	Avg. Depth Range	March		200.4587234
+42901	Avg. Depth Range	April		150.4344064
+42901	Avg. Depth Range	May		246.553211
+42901	Avg. Depth Range	June		605.9984848
+42901	Avg. Depth Range	July		195.6997558
+42901	Avg. Depth Range	August		66.70703043
+42901	Avg. Depth Range	September		113.306662
+42901	Avg. Depth Range	October		89.76819338
+42901	Avg. Depth Range	November		37.70079208
+42901	Avg. Depth Range	December		38.40383747
+42912	Avg. Depth Range	January		530.9022509
+42912	Avg. Depth Range	February		527.3971014
+42912	Avg. Depth Range	March		592.5276479
+42912	Avg. Depth Range	April		555.1269065
+42912	Avg. Depth Range	May		587.6207479
+42912	Avg. Depth Range	June		577.214255
+42912	Avg. Depth Range	July		630.0165371
+42912	Avg. Depth Range	August		631.9952471
+42912	Avg. Depth Range	September		527.2501723
+42912	Avg. Depth Range	October		614.4
+42927	Avg. Depth Range	January		804.872709
+42927	Avg. Depth Range	February		858.611294
+42927	Avg. Depth Range	March		790.2347418
+42931	Avg. Depth Range	January		522.063113
+42931	Avg. Depth Range	March		480
+42931	Avg. Depth Range	July		881.2018779
+42931	Avg. Depth Range	August		876.1646489
+42931	Avg. Depth Range	November		47.34217391
+42931	Avg. Depth Range	December		58.62070006
+42934	Avg. Depth Range	January		454.794538
+42934	Avg. Depth Range	February		387.7279305
+42934	Avg. Depth Range	March		464.8980822
+42934	Avg. Depth Range	April		494.4825552
+42934	Avg. Depth Range	May		482.4447879
+42934	Avg. Depth Range	June		443.0202189

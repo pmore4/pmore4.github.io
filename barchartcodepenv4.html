@@ -32,11 +32,11 @@ body {
 			<input name="updateButton" 
 				   type="button" 
 				   value="Shell" 
-				   onclick="updateShell()" />
+				   onclick="updateGraph(['preeschol', 'gradeschooler'])" />
 			<input name="updateButton3" 
 				   type="button" 
 				   value="Noble" 
-				   onclick="updateNoble()" />
+				   onclick="updateData2()" />
 		</div>
   <div class="container">
     <div class="row">
@@ -85,8 +85,8 @@ var data = [
   }
 ];
 
-var ids = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
-var ageNames = ['BP','Shell', 'Chevron', 'Noble','Conoco'];
+var ids = ['preeschol', 'gradeschooler', 'teen', 'youngAdult', 'adult', 'middleAge', 'retired'];
+var ageNames = ['Under 5 Years', '5 to 13 Years', '14 to 17 years', '18 to 24 years', '25 to 44 Years', '45 to 64 Years', '65 Years and Over'];
 
 // Let's populate the categoeries checkboxes
 d3.select('.categories').selectAll('.checkbox')
@@ -106,7 +106,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
 
 // the scale for the state age value
 var x = d3.scaleLinear().range([0, width]);
-console.log(x[1]);
+
 // the scale for each state
 var y0 = d3.scaleBand().range([0, height], .1);
 // the scale for each state age
@@ -128,13 +128,7 @@ var svg = d3.select(".graph").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.select('.categories').selectAll('.category').on('change', function() {
-  var x = d3.select('.categories').selectAll('.category:checked');
-  var ids = x[0].map(function(category) {
-    return category.id;
-  });
-  updateGraph(ids);
-});
+
 renderGraph();
 
 function renderGraph() {
@@ -178,7 +172,7 @@ function updateGraph(selectedIds) {
   // y0 domain is all the state names
   y0.domain(statesData.map(function(d) { return d.state; }));
   // y1 domain is all the age names, we limit the range to from 0 to a y0 band
-  y1.domain(ids).rangeRoundBands([0, y0.rangeBand()]);
+  y1.domain(ids).rangeRound([0, y0.bandwidth()]);
 
   svg.selectAll('.axis.x').call(xAxis);
   svg.selectAll('.axis.y').call(yAxis);
@@ -206,7 +200,7 @@ function updateGraph(selectedIds) {
     .text(function(d) { return d.name })
     .transition()
     .attr("width", function(d) { return x(d.value); })
-    .attr("height", y1.rangeBand());
+    .attr("height", y1.bandwidth());
 
   age.exit().transition().attr("width", 0).remove();
 

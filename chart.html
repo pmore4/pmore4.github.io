@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+
+<html>
+   <meta charset="utf-8">
+<head>
+<title>updating a bar chart with d3.js (v4)</title>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<style>
+.radio{
+	text-align: center;
+}
+.row{
+	text-align: center;
+}
+</style>
+
+<body>
+
+<div class='container'>
+	<div class='row'>
+	<h2> watch time vs. age group</h2>
+				<p>total time watched: 1411 minutes</p>
+					<div class='radio'>
+						<label class='radio-inline'>
+							<input type="radio" name="owner" value="shell" onclick='change(this.value)'> shell
+						</label>
+						<label class='radio-inline'>
+							<input type="radio" name="owner" value="bp" onclick='change(this.value)'> bp
+						</label>
+						<label class='radio-inline'>
+							<input type="radio" name="owner" value="both" onclick='change(this.value)' checked > both
+						</label>
+					</div>
+			<svg class='chart'>
+			</svg>
+	</div>
+</div>
+</body>
+
+
+
+<script>
+//set up data
+var bothData=[
+{"Owner":"SHELL","Month":"Jan","Id":"42363","Percent":"73.4"},
+{"Owner":"SHELL","Month":"Jan","Id":"42390","Percent":"58.9"},
+{"Owner":"SHELL","Month":"Jan","Id":"42394","Percent":"74.2"},
+{"Owner":"SHELL","Month":"Jan","Id":"42874","Percent":"41.2"},
+{"Owner":"BP","Month":"Jan","Id":"42901","Percent":"1.2"},
+{"Owner":"BP","Month":"Jan","Id":"42370","Percent":"69"},
+{"Owner":"BP","Month":"Jan","Id":"42374","Percent":"37"},
+{"Owner":"BP","Month":"Jan","Id":"42880","Percent":"95"},
+{"Owner":"BP","Month":"Jan","Id":"42887","Percent":"40"},
+{"Owner":"SHELL","Month":"Feb","Id":"42363","Percent":"64.8"},
+{"Owner":"SHELL","Month":"Feb","Id":"42390","Percent":"59.4"},
+{"Owner":"SHELL","Month":"Feb","Id":"42394","Percent":"74.1"},
+{"Owner":"SHELL","Month":"Feb","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Feb","Id":"42901","Percent":"0.1"},
+{"Owner":"BP","Month":"Feb","Id":"42370","Percent":"70"},
+{"Owner":"BP","Month":"Feb","Id":"42374","Percent":"34"},
+{"Owner":"BP","Month":"Feb","Id":"42880","Percent":"93"},
+{"Owner":"BP","Month":"Feb","Id":"42887","Percent":"30"},
+{"Owner":"SHELL","Month":"Mar","Id":"42363","Percent":"74.6"},
+{"Owner":"SHELL","Month":"Mar","Id":"42390","Percent":"61.4"},
+{"Owner":"SHELL","Month":"Mar","Id":"42394","Percent":"74.2"},
+{"Owner":"SHELL","Month":"Mar","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Mar","Id":"42901","Percent":"0"},
+{"Owner":"BP","Month":"Mar","Id":"42370","Percent":"74"},
+{"Owner":"BP","Month":"Mar","Id":"42374","Percent":"38"},
+{"Owner":"BP","Month":"Mar","Id":"42280","Percent":"95"},
+{"Owner":"BP","Month":"Mar","Id":"42887","Percent":"14"},
+{"Owner":"SHELL","Month":"Apr","Id":"42363","Percent":"76.7"},
+{"Owner":"SHELL","Month":"Apr","Id":"42390","Percent":"64.1"},
+{"Owner":"SHELL","Month":"Apr","Id":"42394","Percent":"74.2"},
+{"Owner":"SHELL","Month":"Apr","Id":"42874","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Apr","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Apr","Id":"42901","Percent":"0.0"},
+{"Owner":"BP","Month":"Apr","Id":"42370","Percent":"68"},
+{"Owner":"BP","Month":"Apr","Id":"42374","Percent":"39"},
+{"Owner":"BP","Month":"Apr","Id":"42880","Percent":"94"},
+{"Owner":"BP","Month":"Apr","Id":"42887","Percent":"10"},
+{"Owner":"SHELL","Month":"May","Id":"42363","Percent":"75.5"},
+{"Owner":"SHELL","Month":"May","Id":"42390","Percent":"63.3"},
+{"Owner":"SHELL","Month":"May","Id":"42394","Percent":"74.3"},
+{"Owner":"SHELL","Month":"May","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"May","Id":"42901","Percent":"0.0"},
+{"Owner":"BP","Month":"May","Id":"42370","Percent":"69"},
+{"Owner":"BP","Month":"May","Id":"42374","Percent":"40"},
+{"Owner":"BP","Month":"May","Id":"42880","Percent":"96"},
+{"Owner":"BP","Month":"May","Id":"42887","Percent":"18"},
+{"Owner":"SHELL","Month":"Jun","Id":"42363","Percent":"66.2"},
+{"Owner":"SHELL","Month":"Jun","Id":"42390","Percent":"65.7"},
+{"Owner":"SHELL","Month":"Jun","Id":"42394","Percent":"74.2"},
+{"Owner":"SHELL","Month":"Jun","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Jun","Id":"42901","Percent":"96.8"},
+{"Owner":"BP","Month":"Jun","Id":"42370","Percent":"69"},
+{"Owner":"BP","Month":"Jun","Id":"42374","Percent":"42"},
+{"Owner":"BP","Month":"Jun","Id":"42280","Percent":"98"},
+{"Owner":"BP","Month":"Jun","Id":"42887","Percent":"50"},
+{"Owner":"SHELL","Month":"Jul","Id":"42363","Percent":"77.5"},
+{"Owner":"SHELL","Month":"Jul","Id":"42390","Percent":"64.3"},
+{"Owner":"SHELL","Month":"Jul","Id":"42394","Percent":"74.2"},
+{"Owner":"SHELL","Month":"Jul","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Jul","Id":"42901","Percent":"96.8"},
+{"Owner":"BP","Month":"Jul","Id":"42370","Percent":"66"},
+{"Owner":"BP","Month":"Jul","Id":"42374","Percent":"43"},
+{"Owner":"BP","Month":"Jul","Id":"42880","Percent":"94"},
+{"Owner":"BP","Month":"Jul","Id":"42887","Percent":"14"},
+{"Owner":"SHELL","Month":"Aug","Id":"42363","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Aug","Id":"42390","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Aug","Id":"42394","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Aug","Id":"42874","Percent":"92.65"},
+{"Owner":"BP","Month":"Aug","Id":"42901","Percent":"97.9"},
+{"Owner":"BP","Month":"Aug","Id":"42370","Percent":"70"},
+{"Owner":"BP","Month":"Aug","Id":"42374","Percent":"40"},
+{"Owner":"BP","Month":"Aug","Id":"42880","Percent":"97"},
+{"Owner":"BP","Month":"Aug","Id":"42887","Percent":"3.2"},
+{"Owner":"SHELL","Month":"Sep","Id":"42363","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Sep","Id":"42390","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Sep","Id":"42394","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Sep","Id":"42874","Percent":"89.2"},
+{"Owner":"BP","Month":"Sep","Id":"42901","Percent":"0"},
+{"Owner":"BP","Month":"Sep","Id":"42370","Percent":"0"},
+{"Owner":"BP","Month":"Sep","Id":"42374","Percent":"40"},
+{"Owner":"BP","Month":"Sep","Id":"42880","Percent":"96"},
+{"Owner":"BP","Month":"Sep","Id":"42887","Percent":"7.5"},
+{"Owner":"SHELL","Month":"Oct","Id":"42363","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Oct","Id":"42390","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Oct","Id":"42394","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Oct","Id":"42874","Percent":"93.9"},
+{"Owner":"BP","Month":"Oct","Id":"42901","Percent":"95.4"},
+{"Owner":"BP","Month":"Oct","Id":"42370","Percent":"69"},
+{"Owner":"BP","Month":"Oct","Id":"42374","Percent":"0"},
+{"Owner":"BP","Month":"Oct","Id":"42880","Percent":"92"},
+{"Owner":"BP","Month":"Oct","Id":"42887","Percent":"5.6"},
+{"Owner":"SHELL","Month":"Nov","Id":"42363","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Nov","Id":"42390","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Nov","Id":"42394","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Nov","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Nov","Id":"42901","Percent":"94.5"},
+{"Owner":"BP","Month":"Nov","Id":"42370","Percent":"66"},
+{"Owner":"BP","Month":"Nov","Id":"42374","Percent":"0"},
+{"Owner":"BP","Month":"Nov","Id":"42880","Percent":"33"},
+{"Owner":"BP","Month":"Nov","Id":"42887","Percent":"1.5"},
+{"Owner":"SHELL","Month":"Dec","Id":"42363","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Dec","Id":"42390","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Dec","Id":"42394","Percent":"0.0"},
+{"Owner":"SHELL","Month":"Dec","Id":"42874","Percent":"0.0"},
+{"Owner":"BP","Month":"Dec","Id":"42901","Percent":"95.2"},
+{"Owner":"BP","Month":"Dec","Id":"42370","Percent":"70"},
+{"Owner":"BP","Month":"Dec","Id":"42374","Percent":"0"},
+{"Owner":"BP","Month":"Dec","Id":"42880","Percent":"0"},
+{"Owner":"BP","Month":"Dec","Id":"42887","Percent":"1"}
+];
+//make one for each ID
+var shellData = [];
+var bpData = [];
+var nobleData= [];
+var conocoData=[];
+
+for(var i = 0; i < bothData.length; i++){
+	if(bothData[i]["Owner"] === "SHELL"){
+		shellData.push(bothData[i]);
+	}else if (bothData[i]["Owner"] === "BP"){
+		bpData.push(bothData[i]);
+	}
+}
+console.log(shellData);
+//functions for toggling between data
+function change(value){
+
+	if(value === 'shell'){
+		update(shellData);
+	}else if(value === 'bp'){
+		update(bpData);
+	}else{
+		update(bothData);
+	}
+}
+
+function update(data){
+	//set domain for the x axis
+	xChart.domain(data.map(function(d){ return d.Month; }) );
+	//set domain for y axis
+	yChart.domain( [0, d3.max(data, function(d){ return +d.Percent ; })] );
+	
+	//get the width of each bar 
+	var barWidth = width / data.length;
+	
+	//select all bars on the graph, take them out, and exit the previous data set. 
+	//then you can add/enter the new data set
+	var bars = chart.selectAll(".bar")
+					.remove()
+					.exit()
+					.data(data)		
+	//now actually give each rectangle the corresponding data
+	bars.enter()
+		.append("rect")
+		.attr("class", "bar")
+		.attr("x", function(d, i){ return i * barWidth + 1 })
+		.attr("y", function(d){ return yChart( d.Percent); })
+		.attr("height", function(d){ return height - yChart(d.Percent); })
+		.attr("width", barWidth - 1)
+		.attr("fill", function(d){ 
+			if(d.Id === "42363"){
+				return "rgb(251,180,174)";
+			}else if(d.Owner === "BP") {
+				return "rgb(179,155,227)";
+			}
+		});
+	//left axis
+	chart.select('.y')
+		  .call(yAxis)
+	//bottom axis
+	chart.select('.xAxis')
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis)
+		.selectAll("text")
+			.style("text-anchor", "end")
+			.attr("dx", "-.8em")
+			.attr("dy", ".15em")
+			.attr("transform", function(d){
+				return "rotate(-65)";
+			});
+			
+}//end update
+
+//set up chart
+var margin = {top: 20, right: 20, bottom: 95, left: 50};
+var width = 800;
+var height = 500;
+
+var chart = d3.select(".chart")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var xChart = d3.scaleBand()
+				.range([0, width]);
+				
+var yChart = d3.scaleLinear()
+				.range([height, 0]);
+
+var xAxis = d3.axisBottom(xChart);
+var yAxis = d3.axisLeft(yChart);
+
+//set up axes
+//left axis
+	chart.append("g")
+		  .attr("class", "y axis")
+		  .call(yAxis)
+		  
+	//bottom axis
+	chart.append("g")
+		.attr("class", "xAxis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis)
+		.selectAll("text")
+			.style("text-anchor", "end")
+			.attr("dx", "-.8em")
+			.attr("dy", ".15em")
+			.attr("transform", function(d){
+				return "rotate(-65)";
+			});
+
+//add labels
+chart
+	.append("text")
+	.attr("transform", "translate(-35," +  (height+margin.bottom)/2 + ") rotate(-90)")
+	.text("% Good");
+		
+chart
+	.append("text")
+	.attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom - 5) + ")")
+	.text("Month");
+
+//use bothData to begin with
+update(bothData);
+</script>
+
+</html>

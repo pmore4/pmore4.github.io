@@ -1,0 +1,12 @@
+Tree Chart
+Legend 
+Tooltip 
+Format the text inside of the box
+
+Scatter Plot
+Legend label better
+
+Bar Chart
+Hide the radio buttons 
+Legend with all of the color
+By owner

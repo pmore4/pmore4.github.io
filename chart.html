@@ -22,8 +22,6 @@
 
 <div class='container'>
 	<div class='row'>
-	<h2> watch time vs. age group</h2>
-				<p>total time watched: 1411 minutes</p>
 					<div class='radio'>
 						<label class='radio-inline'>
 							<input type="radio" name="owner" value="SHELL" onclick='change(this.value)'> SHELL
@@ -267,6 +265,7 @@ var nobleData= [];
 var conocoData=[];
 var chevronData = [];
 var color = d3.scaleOrdinal(d3.schemeCategory20);
+//var color =d3. scaleSequential(d3.interpolateInferno).domain([0,20]);
 for(var i = 0; i < bothData.length; i++){
 	if(bothData[i]["Owner"] === "SHELL"){
 		shellData.push(bothData[i]);

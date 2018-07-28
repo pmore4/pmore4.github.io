@@ -2,7 +2,6 @@
 
 $("acontent").empty();
 
-
 'use strict';
 
 const margin = {top: 10, right: 0, bottom: 0, left: 20},

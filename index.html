@@ -49,63 +49,63 @@
 	</style>
     </head>
     <body>
+
+<div class="tabbable">
+    <ul class="nav nav-pills nav-justified">
+        <li class="active"><a class="atab" href="#a_tab" data-toggle="tab">Distribution of Data Collected</a></li>
+        <li><a class="btab" href="#b_tab" data-toggle="tab">Depth Range Distribution</a></li>
+		<li><a class="ctab" href="#c_tab" data-toggle="tab">Sensor Effectiveness</a></li>
+		<li><a class="dtab" href="#d_tab" data-toggle="tab">About Essay</a></li>				
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="a_tab">
+            <h1>Distribution of Data Collected by Station ID</h1>
+            <acontent></acontent>
+        </div>
+        <div class="tab-pane" id="b_tab">
+            <h1>Depth Range Distribution by Station ID</h1>
+            <bcontent></bcontent>
+        </div>
+		<div class="tab-pane" id="c_tab">
+            <h1>Sensor Effectiveness in 2017</h1>
+            <ccontent></ccontent>
+        </div>
+		<div class="tab-pane" id="d_tab">
+            <h1>About Essay</h1>
+			<p id="p1"></p>
+			<p id="p2"></p>
+			<p id="p3"></p>
+			<p id="p4"></p>
+            <dcontent></dcontent>
+        </div>
+    </div>
+
+</div>
 <div class='container'>
 	<div class='row'>
-					<div class='radio'>
-						<label class='radio-inline'>
-							<input type="radio" name="owner" value="SHELL" onclick='change(this.value)'> SHELL
-						</label>
-						<label class='radio-inline'>
-							<input type="radio" name="owner" value="BP" onclick='change(this.value)'> BP
-						</label>
-						<label class='radio-inline'>
-							<input type="radio" name="owner" value="CHEVRON" onclick='change(this.value)'> CHEVRON
-						</label>
-						<label class='radio-inline'>
-							<input type="radio" name="owner" value="NOBLE" onclick='change(this.value)'> NOBLE
-						</label>
-						<label class='radio-inline'>
-							<input type="radio" name="owner" value="CONOCO" onclick='change(this.value)'> CONOCO
-						</label>						
-						<label class='radio-inline'>
-							<input type="radio" name="owner" value="All" onclick='change(this.value)' checked > All
-						</label>
-					</div>
+		<div id= 'y' class='radio'>
+			<label class='radio-inline'>
+				<input type="radio" name="owner" id="SHELL" value="SHELL" onclick='change(this.value)'> SHELL
+			</label>
+			<label class='radio-inline'>
+				<input type="radio" name="owner" value="BP" onclick='change(this.value)'> BP
+			</label>
+			<label class='radio-inline'>
+				<input type="radio" name="owner" value="CHEVRON" onclick='change(this.value)'> CHEVRON
+			</label>
+			<label class='radio-inline'>
+				<input type="radio" name="owner" value="NOBLE" onclick='change(this.value)'> NOBLE
+			</label>
+			<label class='radio-inline'>
+				<input type="radio" name="owner" value="CONOCO" onclick='change(this.value)'> CONOCO
+			</label>						
+			<label class='radio-inline'>
+				<input type="radio" name="owner" value="All" onclick='change(this.value)' checked > All
+			</label>
+		</div>
 	</div>
 </div>
-        <div class="tabbable">
-            <ul class="nav nav-pills nav-justified">
-                <li class="active"><a class="atab" href="#a_tab" data-toggle="tab">Distribution of Data Collected</a></li>
-                <li><a class="btab" href="#b_tab" data-toggle="tab">Depth Range Distribution</a></li>
-				<li><a class="ctab" href="#c_tab" data-toggle="tab">Sensor Effectiveness</a></li>
-				<li><a class="dtab" href="#d_tab" data-toggle="tab">About Essay</a></li>				
-            </ul>
-
-            <div class="tab-content">
-                <div class="tab-pane active" id="a_tab">
-                    <h1>Distribution of Data Collected by Station ID</h1>
-                    <acontent></acontent>
-                </div>
-                <div class="tab-pane" id="b_tab">
-                    <h1>Depth Range Distribution by Station ID</h1>
-                    <bcontent></bcontent>
-                </div>
-				<div class="tab-pane" id="c_tab">
-                    <h1>Sensor Effectiveness in 2017</h1>
-                    <ccontent></ccontent>
-                </div>
-				<div class="tab-pane" id="d_tab">
-                    <h1>About Essay</h1>
-					<p id="p1"></p>
-					<p id="p2"></p>
-					<p id="p3"></p>
-					<p id="p4"></p>
-                    <dcontent></dcontent>
-                </div>
-            </div>
-
-        </div>
-
 		
 </div>   
      <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
@@ -123,19 +123,27 @@
                 // Used when debugging
                 cache: false
             });
-        
+        	document.getElementById('y').style.display = 'none';
             $.getScript("a.js");
             $(".atab").click(function() {
                 $.getScript("a.js");
+                document.getElementById('y').style.display = 'none';
+
             })
         </script>
         <script>
             $(".btab").click(function() {
                 $.getScript("b.js");
+                document.getElementById('y').style.display = 'none';
             })
         </script>
 		<script>
+		     $(".ctab").click(function() {
+                document.getElementById('y').style.display = 'block';
+            })
 		$("ccontent").empty();
+
+
 
 		var bothData=[
 		{"Owner":"SHELL","Month":"Jan","Id":"42363","Percent":"73.4"},
@@ -515,6 +523,8 @@
 				<script>
 					$(".dtab").click(function() {
 						$.getScript("d.js");
+						document.getElementById('y').style.display = 'none';
+
 					})	
 				
         </script>
@@ -523,6 +533,7 @@
 		  $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
 		});
 		</script>
+		
     </body>
 	
 </html>

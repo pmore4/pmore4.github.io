@@ -1,8 +1,6 @@
 !(function (d3) {
 
 $("bcontent").empty();
-$('#option').hide('fast');
-$('#option2').hide('fast');
 
 
 var margin = {top: 40, right: 20, bottom: 80, left: 60},

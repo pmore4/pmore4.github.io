@@ -33,11 +33,31 @@
 }
 
 	.tooltip {
-	  position: absolute;
-	  width: 200px;
-	  height: 28px;
-	  pointer-events: none;
+	position: absolute;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	padding: 2px;
+	font: 12px sans-serif;
+	background: lightsteelblue;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
 	}
+	.tooltip2 {
+	position: absolute;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	padding: 2px;
+	font: 12px sans-serif;
+	background: lightsteelblue;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+	}
+
+
 	.radio{
 	text-align: center;
 	}
@@ -372,7 +392,7 @@
 		var conocoData=[];
 		var chevronData = [];
 		var color = d3.scaleOrdinal(d3.schemeCategory20);
-		var stations = ["42390","42394","42874","42901","42874","42901","42370","42374","42880","42887","42396","42876","42912","42934","42927","42931","42368"]
+		var stations = ["42390","42394","42874","42901","42370","42374","42880","42887","42396","42876","42912","42934","42927","42931","42368"]
 
 		//var color =d3. scaleSequential(d3.interpolateInferno).domain([0,20]);
 		for(var i = 0; i < bothData.length; i++){
@@ -464,12 +484,44 @@
 					}else if(d.Id === "42368") {
 						return color(d.Id);		
 					}
-				});
-				bars.append("line")
-    			.attr("x1", 100)
-    			.attr("y1", 0 )
-    			.attr("x2", 100)
-    			.attr("y2", height);
+				})
+				.on("mouseover", function(d) {
+				    tooltip2.transition()
+				    .duration(200)
+				    .style("opacity", .9);
+				    tooltip2.html(d.Owner + "<br/> (" + d.Id 
+					        + ", " + d.Percent + ")")
+				        .style("left", (d3.event.pageX + 5) + "px")
+				        .style("top", (d3.event.pageY - 28) + "px");
+				      })
+				      .on("mouseout", function(d) {
+				          tooltip2.transition()
+				               .duration(500)
+				               .style("opacity", 0);
+					  });
+
+			chart.append("line")
+				.attr("class","line")
+				.attr("x1",577)
+				.attr("y1",-20)
+				.attr("x2",577)
+				.attr("y2",450)
+				.style("stroke", "black");
+			chart.append("line")
+				.attr("class","line")
+				.attr("x1",627)
+				.attr("y1",-20)
+				.attr("x2",627)
+				.attr("y2",450)
+				.style("stroke", "black");
+
+			chart.append("text")
+				.attr("transform", "translate(582," +  -20 + ") rotate(-45)")
+				.text("Hurricane Harvey");
+			chart.append("text")
+				.attr("transform", "translate(632," +  -20 + ") rotate(-45)")
+				.text("Hurricane Irma");
+
 			//left axis
 			chart.select('.y')
 				  .call(yAxis)
@@ -484,19 +536,23 @@
 					.attr("transform", function(d){
 						return "rotate(-65)";
 					});
-
-					
+ 
 		}//end update
 
 		//set up chart
-		var margin = {top: 20, right: 200, bottom: 40, left: 100};
+		var margin = {top: 105, right: 200, bottom: 40, left: 100};
 		var width = 1000-margin.left;
 		var height = 400;
+
 		var chart = d3.select("ccontent").append("svg")
 						.attr("width", width + margin.left + margin.right)
-						.attr("height", height + margin.top + margin.bottom)
+						.attr("height", height+ margin.top + margin.bottom)
 						.append("g")
 						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var tooltip2 = d3.select("ccontent").append("div")
+		    .attr("class", "tooltip2")
+		    .style("opacity", 0);
 
 		var xChart = d3.scaleBand()
 						.range([0, width]);
@@ -557,11 +613,13 @@
         	.style("fill", color);
 
        		legend.append("text")
-        	.attr("x", width +200)
+        	.attr("x", width +180)
         	.attr("y", 9)
         	.attr("dy", ".35em")
         	.style("text-anchor", "start")
         	.text(function(d) { return d; });
+
+
 
 		//use bothData to begin with
 		update(bothData);

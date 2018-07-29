@@ -3,12 +3,12 @@
 $("bcontent").empty();
 
 
-var margin = {top: 40, right: 20, bottom: 80, left: 60},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 80, right: 20, bottom: 80, left:100},
+    width = 1000 - margin.left ,
+    height = 600 - margin.top - margin.bottom;
 
 var x = d3.scaleLinear()
-    .range([0, width]);
+    .range([0, width-100]);
 
 var y = d3.scaleLinear()
     .range([height, 0]);
@@ -30,7 +30,7 @@ var yAxis = d3.axisLeft(y).ticks(16)
 var svg = d3.select("bcontent").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var tooltip = d3.select("bcontent").append("div")
@@ -63,7 +63,7 @@ d3.csv("DepthRange.csv", function(error, data) {
   svg.append("text")             
       .attr("transform",
             "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")")
+                           (height + margin.bottom -5) + ")")
       .style("text-anchor", "middle")
       .text("Depth Range [meters]");
 	  
@@ -74,7 +74,7 @@ d3.csv("DepthRange.csv", function(error, data) {
 	  
   svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
+      .attr("y", 20 - margin.left)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
@@ -106,24 +106,27 @@ d3.csv("DepthRange.csv", function(error, data) {
                .style("opacity", 0);
 	  });
 
-  var legend = svg.selectAll(".legend")
+  var legend = d3.select("svg")
+      .append("g")
+      .selectAll("g")
       .data(color.domain())
-    .enter().append("g")
+      .enter().append("g")
       .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      .attr("transform", function(d, i) { return "translate(20," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", width - 18)
+      .attr("x", width +20)
+      .attr("y",  100)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
+      .attr("x", width + 15)
+      .attr("y", 109)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
-      .text(function(d) { return d; });
+      .text(function(d) { return d +"%"; });
 ////////////////////////////////	  
 	svg.selectAll(".legend")
       .data([8,50,100,150])
@@ -132,21 +135,58 @@ d3.csv("DepthRange.csv", function(error, data) {
       //.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   // draw legend colored rectangles
-  legend.append("circle")
-      .attr("cx", width )
+  svg.append("circle")
+    .attr("cx", width )
 	  .attr("cy", 200)
-      .attr("r",function (d) {return d/3;})
-      .style("stroke","black")
-	  .style("fill","none")
-	  ;
+    .attr("r",function (d) {return d/3;})
+    .style("stroke","black")
+	  .style("fill","none");
+
 
   // draw legend text
   legend.append("text")
-      .attr("x", width - 30)
+      .attr("x", width)
       .attr("y",200)
       .attr("dy", "1em")
       .style("text-anchor", "end")
-      .text(function(d) { return d+"M";})
+      .text(function(d) { return d +" M";})
+
+  svg.append("ellipse")
+    .attr("cx", 517 )
+    .attr("cy", 175)
+    .attr("rx",100)
+    .attr("ry",220)
+    .style("stroke","black")
+    .style("fill","none");
+
+  svg.append("ellipse")
+    .attr("cx", 275 )
+    .attr("cy", 310)
+    .attr("rx",100)
+    .attr("ry",135)
+    .style("stroke","black")
+    .style("fill","none");
+  svg.append("text")
+    .attr("transform", "translate(590," +  0 + ") rotate(0)")
+    .text("Cluster of High Throughput Data");
+  svg.append("text")
+    .attr("transform", "translate(50," +  160 + ") rotate(0)")
+    .text("Cluster of Low Throughput Data");
+  svg.append("line")
+    .attr("class","line")
+    .attr("x1",210)
+    .attr("y1",172)
+    .attr("x2",225)
+    .attr("y2",212)
+    .style("stroke", "black");
+  svg.append("line")
+    .attr("class","line")
+    .attr("x1",627)
+    .attr("y1",5)
+    .attr("x2",590)
+    .attr("y2",30)
+    .style("stroke", "black");    
+
 });
 
 })(d3);

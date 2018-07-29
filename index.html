@@ -8,7 +8,15 @@
 	body {
 	  font: 12px sans-serif;
 	}
-
+h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 10px;
+    margin-right: 2em;
+    font-weight: bold;
+}
 	.axis path,
 	.axis line {
 	  fill: none;
@@ -35,7 +43,7 @@
 	.tooltip {
 	position: absolute;
 	text-align: center;
-	width: 100px;
+	width: 140px;
 	height: 85px;
 	padding: 2px;
 	font: 12px sans-serif;
@@ -84,10 +92,10 @@
 
 <div class="tabbable">
     <ul class="nav nav-pills nav-justified">
-        <li class="active">
+
         <li><a class="btab" href="#b_tab" data-toggle="tab">Depth Range Distribution</a></li>
 		<li><a class="ctab" href="#c_tab" data-toggle="tab">Sensor Effectiveness</a></li>
-		<li><a class="dtab" href="#d_tab" data-toggle="tab">About Essay</a></li>				
+		<li><a class="dtab" href="#d_tab" data-toggle="tab">About the Visualization</a></li>				
     </ul>
 
     <div class="tab-content">
@@ -97,23 +105,44 @@
         </div>
         <div class="tab-pane active " id="b_tab">
             <h1>Depth Range Distribution by Station ID</h1>
-           	<p id="p1">The use of current sensors for tracking the current velocity under water is widely used offshore by scientific institutions and oil field companies.They report the velocity as well as data health metrics such as "%Good" that tells us the percent of good quality data collected. The %Good is the ratio of data that passed quality checks and total data collected.   </p>
-           	<p id="p2">This plot of percent of Good data collected at different offshore Stations show the correlation between percent good and the effectiveness of the sensor. The effectiveness is defined in terms of the depth range the sensor can read current velocity. </p>
+           	<p  style="margin-left:2.5em;margin-right:2.5em">The use of current sensors for tracking the current velocity under water is widely used offshore by scientific institutions and oil field companies.They report the velocity as well as data health metrics such as "%Good" that tells us the percent of good quality data collected. The %Good is the ratio of data that passed quality checks and total data collected.  
+				<br>
+				<br>
+           		This plot of percent of Good data collected at different offshore Stations show the correlation between percent good and the effectiveness of the sensor. The effectiveness is defined in terms of the depth range the sensor can read current velocity.
+
+           	 </p>
 
             <bcontent></bcontent>
         </div>
 		<div class="tab-pane" id="c_tab">
             <h1>Sensor Effectiveness in 2017 by Owner</h1>
-            <p id="p2">The current sensor's effectiveness can be effected by many factors. One of the main reason for poor readings is environmental. Examining the effectiveness at different Stations in terms of time we can see that Hurricanes played a large role in sensors collecting bad data or being removed.</p>
+            <p style="margin-left:2.5em;margin-right:2.5em">The current sensor's effectiveness can be effected by many factors. One of the main reason for poor readings is environmental. Examining the effectiveness at different Stations in terms of time we can see that Hurricanes played a large role in sensors collecting bad data or being removed.</p>
             <ccontent></ccontent>
 
         </div>
 		<div class="tab-pane" id="d_tab">
-            <h1>About Essay</h1>
-			<p id="p"></p>
-			<p id="p"></p>
-			<p id="p"></p>
-			<p id="p"></p>
+            <h1>About the Visualization</h1>
+			<p p style="margin-left: 2.5em;margin-right: 2.5em;padding: 5 7em 2em 5;border-width: 2px; border-color: black; border-style:solid;">
+
+This narrative visualization investigates the useful range of ocean current meters in the year 2017. The current data is collected using Acoustic Doppler Current Profiler(ADCP) sensor. The scenes in the narrative qualify the effectiveness of the sensor in terms of Percent Good and of the Depth Range for the readings taken over time. The scenes identify the changes of sensor effectiveness over the year annotation key events. ADCP data is collected by the National Oceanic and Atmospheric Administration’s National Data Buoy Center (NDBC) for scientific purposes to increase understanding of the ocean. The NDBC collects the data from sensors all over the world. Each Sensor location is assigned a Station Id by the NDBC and has an Owner. This project is focused on a sample size of oil companies from the Gulf of Mexico .<br> <br> 
+The sensor builds a data packet that includes a timestamp, location, velocity, direction, and Percent Good along with other data that is beyond the scope of this project. We are plotting the amount of data collected and the Percent Good greater than 90 for each data package. <br> <br>
+Narative Structure
+<br> <br>
+I implemented the Martini Glass hybrid structure for this visual narrative. There are 2 main scenes in the narrative. The webpage is setup so that the user arrives at the first scene and can then tab over to the next scene. The first scene is author-driven and gives an overview of the overall data that is being presented. It gives the user a reference to the amount of data being collected and how the quality of the data affects the Depth Range. The plot is has annotated clusters of high quality data and of low quality data collected. The annotations draw the users attention to the quality issues and how they affect the sensors range.<br> <br>
+The user can then press the tab for the next scene. The next scene plots the sensor effectiveness by owner and is user driven. The second scene is made up of a coordinated set of bar charts. The user is allowed to filter the content being displayed according to the owner parameter. The plot updates according to which data the user is interested in viewing. The annotations stay the same for each owner as the data changes.<br> <br>
+In the opening scene the user arrives at Depth Range Distribution plot for the overview of the data and can then navigate to the next scene or to the About the Visualization page. The tabs allow for the user random access to the different scenes after the user views the first opening  scene. After the first scene the user is able to go backwards and forwards to examine all of the data. The tabs for Depth Range Distribution, Sensor Effectiveness trigger the parameter of which slide should be shown to the user. The slide is the parameter and the tabs that the user clicks are triggers that changes what data is shown and what annotations to include in the plot. The annotations are different from the Depth Range Distribution and the Sensor Effectiveness plots.<br> <br>  
+Depth Range Distribution<br> <br>
+The narrative visualization consists of 2 scenes the first is the Depth Range Distribution. It plots the depth range of each station that is included in the dataset. The dots plotted are color coded to the percentage of  good data that is received from the sensor and are sized according to amount of data collected at each station in 2017. <br> <br>
+This plot gives the user a sense of the amount of data collected at each station and the quality of that data. The annotations on the plot draws the users attention two clusters of data on the plot. The first annotation shows a cluster of data that is colored red for low quality and is around the 500 meter depth range. The second cluster is of data that is colored green and denotes high quality data and is around 900 meters. This shows that the user how higher quality data extends the range of the sensor. The circle annotations show groups of data that are of similar quality and of similar size. This way we are comparing data that has similar dimensions and can draw better conclusions. The text at the top of the plot is also meant to guide the reader to focus on the Depth Range of the Sensor and the clustering of data as a whole. The parameters for this scene are set since we are looking at the data for the entire year 2017.<br> <br>
+The user can then go to the second scene by clicking one of the tabs and transitioning to the next plot. The user can also go to the About the Visualization essay from the opening scene. <br> <br>  
+
+Sensor Effectiveness <br> <br>
+The second scene is the Sensor Effectiveness plot it shows all of the stations and plots their percent good on a bar chart. The chart has all of the stations and can be filtered according to the owner of the station.This scene is coordinated set of charts. The chart shows how the quality of sensor data fluctuates over the year monthly. From the plot we can see that there are consistent stations and some that drop off and come back up  in quality. There are many reasons for change in data quality. <br> <br>
+The scene has annotations that show two significant events in the Gulf of Mexico during the year. The first is Hurricane Harvey annotation that is on the chart around the time the hurricane was in the Gulf. From the chart we can see that the quality of many sensors disappear of go way down in this time frame. The second is Hurricane Irma where we see more sensor data disappear. The annotations stay from one scene to another as the data is filtered. The annotations staying the same  helps keep the viewers oriented through the transitions between the filtered charts. <br> <br>
+The triggers in this scene are the different radio buttons at the bottom. Each button changes the owner parameter for the chart. We can trigger the owner parameter and filter the data being presented by owner. The plot can show all stations or will only show the stations operated by the owner selected with the trigger. It is clearer to see the stations where data quality goes down or completely disappear when the data is filtered and you can focus on the individual stations. The annotations stay the same to allow the user to see how quality changes after that trigger and parameter change. The triggers change the width of the bars on the chart to keep the chart the same and keep the chart more uniform. The bar colors also stay the same and is the reason why the legend always shows the same colors. 
+
+			</p>
+
             <dcontent></dcontent>
         </div>
     </div>
@@ -149,7 +178,7 @@
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
 
 
 	<script type="text/javascript" src="c.js"></script>

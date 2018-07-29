@@ -36,6 +36,7 @@ var svg = d3.select("bcontent").append("svg")
 var tooltip = d3.select("bcontent").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
+var formatDecimal = d3.format(".1f");
 	
 d3.csv("DepthRange.csv", function(error, data) {
   if (error) throw error;
@@ -101,8 +102,8 @@ d3.csv("DepthRange.csv", function(error, data) {
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html("ID "+d.Id + "<br/> Depth  " + d.DepthRange + " [m]<br/>Count in Millions "+(d.BinCount/1000000)
-	        + "<br/> " + d.GoodReadings + "%")
+          tooltip.html("ID: "+d.Id + "<br/> Depth:  " + d.DepthRange + " [m]<br/>Count in Millions: "+ formatDecimal(d.BinCount/1000000)
+	        + "<br/> Good Data: " + d.GoodReadings + "%")
                .style("left", (d3.event.pageX + 5) + "px")
                .style("top", (d3.event.pageY - 28) + "px");
       })

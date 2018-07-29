@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
     <meta charset="utf-8">
-    <title>Demo</title>
+    <title>CS 498 DDV Narrative Visualization</title>
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 	<style>
 	body {
@@ -67,7 +67,7 @@ h1 {
 
 
 	.radio{
-	text-align: center;
+	text-align: left;
 	}
 	.row{
 	text-align: left;
@@ -126,18 +126,18 @@ h1 {
 
 This narrative visualization investigates the useful range of ocean current meters in the year 2017. The current data is collected using Acoustic Doppler Current Profiler(ADCP) sensor. The scenes in the narrative qualify the effectiveness of the sensor in terms of Percent Good and of the Depth Range for the readings taken over time. The scenes identify the changes of sensor effectiveness over the year annotation key events. ADCP data is collected by the National Oceanic and Atmospheric Administration’s National Data Buoy Center (NDBC) for scientific purposes to increase understanding of the ocean. The NDBC collects the data from sensors all over the world. Each Sensor location is assigned a Station Id by the NDBC and has an Owner. This project is focused on a sample size of oil companies from the Gulf of Mexico .<br> <br> 
 The sensor builds a data packet that includes a timestamp, location, velocity, direction, and Percent Good along with other data that is beyond the scope of this project. We are plotting the amount of data collected and the Percent Good greater than 90 for each data package. <br> <br>
-Narative Structure
+<b>Narative Structure</b>
 <br> <br>
 I implemented the Martini Glass hybrid structure for this visual narrative. There are 2 main scenes in the narrative. The webpage is setup so that the user arrives at the first scene and can then tab over to the next scene. The first scene is author-driven and gives an overview of the overall data that is being presented. It gives the user a reference to the amount of data being collected and how the quality of the data affects the Depth Range. The plot is has annotated clusters of high quality data and of low quality data collected. The annotations draw the users attention to the quality issues and how they affect the sensors range.<br> <br>
 The user can then press the tab for the next scene. The next scene plots the sensor effectiveness by owner and is user driven. The second scene is made up of a coordinated set of bar charts. The user is allowed to filter the content being displayed according to the owner parameter. The plot updates according to which data the user is interested in viewing. The annotations stay the same for each owner as the data changes.<br> <br>
 In the opening scene the user arrives at Depth Range Distribution plot for the overview of the data and can then navigate to the next scene or to the About the Visualization page. The tabs allow for the user random access to the different scenes after the user views the first opening  scene. After the first scene the user is able to go backwards and forwards to examine all of the data. The tabs for Depth Range Distribution, Sensor Effectiveness trigger the parameter of which slide should be shown to the user. The slide is the parameter and the tabs that the user clicks are triggers that changes what data is shown and what annotations to include in the plot. The annotations are different from the Depth Range Distribution and the Sensor Effectiveness plots.<br> <br>  
-Depth Range Distribution<br> <br>
-The narrative visualization consists of 2 scenes the first is the Depth Range Distribution. It plots the depth range of each station that is included in the dataset. The dots plotted are color coded to the percentage of  good data that is received from the sensor and are sized according to amount of data collected at each station in 2017. <br> <br>
+<b>Depth Range Distribution</b><br> <br>
+The first scene of the Martini Glass structure is the Depth Range Distribution plot. It plots the depth range of each station that is included in the dataset. The dots plotted are color coded to the percentage of  good data that is received from the sensor and are sized according to amount of data collected at each station in 2017. <br> <br>
 This plot gives the user a sense of the amount of data collected at each station and the quality of that data. The annotations on the plot draws the users attention two clusters of data on the plot. The first annotation shows a cluster of data that is colored red for low quality and is around the 500 meter depth range. The second cluster is of data that is colored green and denotes high quality data and is around 900 meters. This shows that the user how higher quality data extends the range of the sensor. The circle annotations show groups of data that are of similar quality and of similar size. This way we are comparing data that has similar dimensions and can draw better conclusions. The text at the top of the plot is also meant to guide the reader to focus on the Depth Range of the Sensor and the clustering of data as a whole. The parameters for this scene are set since we are looking at the data for the entire year 2017.<br> <br>
 The user can then go to the second scene by clicking one of the tabs and transitioning to the next plot. The user can also go to the About the Visualization essay from the opening scene. <br> <br>  
 
-Sensor Effectiveness <br> <br>
-The second scene is the Sensor Effectiveness plot it shows all of the stations and plots their percent good on a bar chart. The chart has all of the stations and can be filtered according to the owner of the station.This scene is coordinated set of charts. The chart shows how the quality of sensor data fluctuates over the year monthly. From the plot we can see that there are consistent stations and some that drop off and come back up  in quality. There are many reasons for change in data quality. <br> <br>
+<b>Sensor Effectiveness</b><br> <br>
+The second scene is the Sensor Effectiveness plot that it shows all of the stations and plots their percent good on a bar chart. The chart has all of the stations and can be filtered according to the owner of the station.This scene is coordinated set of charts. The chart shows how the quality of sensor data fluctuates over the year monthly. From the plot we can see that there are consistent stations and some that drop off and come back up  in quality. There are many reasons for change in data quality. <br> <br>
 The scene has annotations that show two significant events in the Gulf of Mexico during the year. The first is Hurricane Harvey annotation that is on the chart around the time the hurricane was in the Gulf. From the chart we can see that the quality of many sensors disappear of go way down in this time frame. The second is Hurricane Irma where we see more sensor data disappear. The annotations stay from one scene to another as the data is filtered. The annotations staying the same  helps keep the viewers oriented through the transitions between the filtered charts. <br> <br>
 The triggers in this scene are the different radio buttons at the bottom. Each button changes the owner parameter for the chart. We can trigger the owner parameter and filter the data being presented by owner. The plot can show all stations or will only show the stations operated by the owner selected with the trigger. It is clearer to see the stations where data quality goes down or completely disappear when the data is filtered and you can focus on the individual stations. The annotations stay the same to allow the user to see how quality changes after that trigger and parameter change. The triggers change the width of the bars on the chart to keep the chart the same and keep the chart more uniform. The bar colors also stay the same and is the reason why the legend always shows the same colors. 
 

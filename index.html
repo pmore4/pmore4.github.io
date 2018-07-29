@@ -35,8 +35,8 @@
 	.tooltip {
 	position: absolute;
 	text-align: center;
-	width: 60px;
-	height: 60px;
+	width: 100px;
+	height: 85px;
 	padding: 2px;
 	font: 12px sans-serif;
 	background: lightsteelblue;
@@ -392,8 +392,12 @@
 		var conocoData=[];
 		var chevronData = [];
 		var color = d3.scaleOrdinal(d3.schemeCategory20);
-		var stations = ["42390","42394","42874","42901","42370","42374","42880","42887","42396","42876","42912","42934","42927","42931","42368"]
-
+		var stations = ["42390","42394","42874","42901","42370","42374","42880","42887","42396","42876","42912","42934","42927","42931","42368"];
+		var shellId=["42363","42390","42394","42874"];
+		var bpId=["42901","42370","42374","42880","42887"];
+		var nobleId=["42927","42931"];
+		var conocoId=["42368"];
+		var chevronId=["42396","42876","42912","42934"];
 		//var color =d3. scaleSequential(d3.interpolateInferno).domain([0,20]);
 		for(var i = 0; i < bothData.length; i++){
 			if(bothData[i]["Owner"] === "SHELL"){
@@ -543,7 +547,7 @@
 		var margin = {top: 105, right: 200, bottom: 40, left: 100};
 		var width = 1000-margin.left;
 		var height = 400;
-
+		var offset =100;
 		var chart = d3.select("ccontent").append("svg")
 						.attr("width", width + margin.left + margin.right)
 						.attr("height", height+ margin.top + margin.bottom)
@@ -593,10 +597,10 @@
 			.attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom  ) + ")")
 			.text("Month");
 	
-        var legend =d3.select("svg")
+        var legendShell =d3.select("svg")
         	.append("g")
         	.selectAll("g")
-        	.data(stations.slice())
+        	.data(shellId.slice())
         	.enter().append("g")
         	.attr("class","legend")
             .attr("transform", function (d, i) {
@@ -604,20 +608,154 @@
                 return "translate(0," + i * 20 + ")"
             }
         });
-
-
-        	legend.append("rect")
-        	.attr("x", width+150)
+        	legendShell.append("rect")
+        	.attr("x", width+100)
+        	.attr("y", offset+10)
         	.attr("width", 18)
         	.attr("height", 18)
         	.style("fill", color);
 
-       		legend.append("text")
-        	.attr("x", width +180)
-        	.attr("y", 9)
+       		legendShell.append("text")
+        	.attr("x", width +130)
+        	.attr("y", offset+19)
         	.attr("dy", ".35em")
         	.style("text-anchor", "start")
         	.text(function(d) { return d; });
+        	 
+        	chart.append("text")
+        	.attr("x", width)
+        	.attr("y", -10)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text("SHELL");
+
+        var legendBP =d3.select("svg")
+        	.append("g")
+        	.selectAll("g")
+        	.data(bpId.slice())
+        	.enter().append("g")
+        	.attr("class","legend")
+            .attr("transform", function (d, i) {
+            {
+                return "translate(0," + i * 20 + ")"
+            }
+        	});
+        	legendBP.append("rect")
+        	.attr("x", width+100)
+        	.attr("y", offset+100+10)
+        	.attr("width", 18)
+        	.attr("height", 18)
+        	.style("fill", color);
+
+       		legendBP.append("text")
+        	.attr("x", width +130)
+        	.attr("y", offset+100+19)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text(function(d) { return d; });
+
+        	chart.append("text")
+        	.attr("x", width)
+        	.attr("y", offset-5)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text("BP");
+
+        var legendChevron =d3.select("svg")
+	       	.append("g")
+        	.selectAll("g")
+        	.data(chevronId.slice())
+        	.enter().append("g")
+        	.attr("class","legend")
+            .attr("transform", function (d, i) {
+            {
+                return "translate(0," + i * 20 + ")"
+            }
+        	});
+        	legendChevron.append("rect")
+        	.attr("x", width+100)
+        	.attr("y", offset+220+10)
+        	.attr("width", 18)
+        	.attr("height", 18)
+        	.style("fill", color);
+
+       		legendChevron.append("text")
+        	.attr("x", width +130)
+        	.attr("y", offset+220+19)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text(function(d) { return d; });
+
+        	chart.append("text")
+        	.attr("x", width)
+        	.attr("y", offset+120-5)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text("CHEVRON");
+
+        var legendNoble =d3.select("svg")
+	       	.append("g")
+        	.selectAll("g")
+        	.data(nobleId.slice())
+        	.enter().append("g")
+        	.attr("class","legend")
+            .attr("transform", function (d, i) {
+            {
+                return "translate(0," + i * 20 + ")"
+            }
+        	});
+        	legendNoble.append("rect")
+        	.attr("x", width+100)
+        	.attr("y", offset+320+10)
+        	.attr("width", 18)
+        	.attr("height", 18)
+        	.style("fill", color);
+
+       		legendNoble.append("text")
+        	.attr("x", width +130)
+        	.attr("y", offset+320+19)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text(function(d) { return d; });
+
+        	chart.append("text")
+        	.attr("x", width)
+        	.attr("y", offset+220-5)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text("NOBLE");
+
+        var legendConoco =d3.select("svg")
+	       	.append("g")
+        	.selectAll("g")
+        	.data(conocoId.slice())
+        	.enter().append("g")
+        	.attr("class","legend")
+            .attr("transform", function (d, i) {
+            {
+                return "translate(0," + i * 20 + ")"
+            }
+        	});
+        	legendConoco.append("rect")
+        	.attr("x", width+100)
+        	.attr("y", offset+375+10)
+        	.attr("width", 18)
+        	.attr("height", 18)
+        	.style("fill", color);
+
+       		legendConoco.append("text")
+        	.attr("x", width +130)
+        	.attr("y", offset+375+19)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text(function(d) { return d; });
+
+        	chart.append("text")
+        	.attr("x", width)
+        	.attr("y", offset+272)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text("CONOCO");
 
 
 

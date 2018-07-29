@@ -6,7 +6,7 @@ $("bcontent").empty();
 var margin = {top: 80, right: 20, bottom: 80, left:100},
     width = 1000 - margin.left ,
     height = 600 - margin.top - margin.bottom;
-
+var offset = 150;
 var x = d3.scaleLinear()
     .range([0, width-100]);
 
@@ -79,7 +79,13 @@ d3.csv("DepthRange.csv", function(error, data) {
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Station ID");
-	  
+  
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width-70) + " ," + 
+                           (110) + ")")
+      .style("text-anchor", "middle")
+      .text("Good Data Collected");
 	  
 	  
 
@@ -95,8 +101,8 @@ d3.csv("DepthRange.csv", function(error, data) {
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
-          tooltip.html(d.Id + "<br/> (" + d.DepthRange 
-	        + ", " + d.GoodReadings + ")")
+          tooltip.html("ID "+d.Id + "<br/> Depth  " + d.DepthRange + " [m]<br/>Count in Millions "+(d.BinCount/1000000)
+	        + "<br/> " + d.GoodReadings + "%")
                .style("left", (d3.event.pageX + 5) + "px")
                .style("top", (d3.event.pageY - 28) + "px");
       })
@@ -105,7 +111,7 @@ d3.csv("DepthRange.csv", function(error, data) {
                .duration(500)
                .style("opacity", 0);
 	  });
-
+//the color legend
   var legend = d3.select("svg")
       .append("g")
       .selectAll("g")
@@ -116,41 +122,90 @@ d3.csv("DepthRange.csv", function(error, data) {
 
   legend.append("rect")
       .attr("x", width +20)
-      .attr("y",  100)
+      .attr("y",  offset+50)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
   legend.append("text")
       .attr("x", width + 15)
-      .attr("y", 109)
+      .attr("y", offset+59)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d +"%"; });
-////////////////////////////////	  
-	svg.selectAll(".legend")
-      .data([8,50,100,150])
-	.enter().append("g")
+//Circles legend  
+  var	legendcircle = d3.select("svg")
+      .append("g")
+      .selectAll("g")
+      .data([80,50,150])
+      .enter().append("g")
       .attr("class", "legend");
-      //.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      //.attr("transform", function(d, i) { return "translate(0," + (i * d/5) + ")"; });
 
-  // draw legend colored rectangles
-  svg.append("circle")
-    .attr("cx", width )
-	  .attr("cy", 200)
-    .attr("r",function (d) {return d/3;})
-    .style("stroke","black")
-	  .style("fill","none");
-
-
-  // draw legend text
-  legend.append("text")
-      .attr("x", width)
-      .attr("y",200)
+  legendcircle.append("circle")
+      .attr("cx", width + 37)
+      .attr("cy", offset + 189 )
+      .attr("r",5)
+      .style("stroke","black")
+      .style("fill","none");
+    // label the circles
+  legendcircle.append("text")
+      .attr("x", width+25)
+      .attr("y",offset + 180)
       .attr("dy", "1em")
       .style("text-anchor", "end")
-      .text(function(d) { return d +" M";})
+      .text("8M");
+  
+  legendcircle.append("circle")
+      .attr("cx", width + 37)
+	    .attr("cy",offset + 209 )
+      .attr("r",16)
+      .style("stroke","black")
+	    .style("fill","none");
+  legendcircle.append("text")
+      .attr("x", width+50)
+      .attr("y",offset + 200)
+      .attr("dy", "1em")
+      .style("text-anchor", "end")
+      .text("50M");
+  
+  legendcircle.append("circle")
+      .attr("cx", width +35)
+      .attr("cy",offset + 250 )
+      .attr("r",25)
+      .style("stroke","black")
+      .style("fill","none");
+  legendcircle.append("text")
+      .attr("x", width+55)
+      .attr("y",offset + 241)
+      .attr("dy", "1em")
+      .style("text-anchor", "end")
+      .text("100M");
 
+  legendcircle.append("circle")
+      .attr("cx", width +35)
+      .attr("cy", offset + 310 )
+      .attr("r",35)
+      .style("stroke","black")
+      .style("fill","none");
+  legendcircle.append("text")
+      .attr("x", width+55)
+      .attr("y", offset + 301)
+      .attr("dy", "1em")
+      .style("text-anchor", "end")
+      .text("150M");
+
+
+  // label the circles
+  legendcircle.append("text")
+      .attr("x", width+100)
+      .attr("y",offset + 160)
+      .attr("dy", "1em")
+      .style("text-anchor", "end")
+      .text(" Data Count in Millions");
+
+
+//Annotations dont touch
   svg.append("ellipse")
     .attr("cx", 517 )
     .attr("cy", 175)

@@ -224,10 +224,10 @@ d3.csv("DepthRange.csv", function(error, data) {
     .style("fill","none");
   svg.append("text")
     .attr("transform", "translate(590," +  0 + ") rotate(0)")
-    .text("Cluster of High Throughput Data");
+    .text("Cluster of High Quality Data");
   svg.append("text")
     .attr("transform", "translate(50," +  160 + ") rotate(0)")
-    .text("Cluster of Low Throughput Data");
+    .text("Cluster of Low Quality Data");
   svg.append("line")
     .attr("class","line")
     .attr("x1",210)

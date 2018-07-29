@@ -20,6 +20,18 @@
 	  stroke: #000;
 	}
 
+	.legend {
+      overflow: auto;
+      height: 200px;  
+      width: 50px;  
+        }
+
+    .line {
+  fill: none;
+  stroke: #444;
+  stroke-width: 1.5px;
+}
+
 	.tooltip {
 	  position: absolute;
 	  width: 200px;
@@ -30,7 +42,7 @@
 	text-align: center;
 	}
 	.row{
-	text-align: center;
+	text-align: left;
 	}
 
 	form {
@@ -70,6 +82,7 @@
 		<div class="tab-pane" id="c_tab">
             <h1>Sensor Effectiveness in 2017</h1>
             <ccontent></ccontent>
+
         </div>
 		<div class="tab-pane" id="d_tab">
             <h1>About Essay</h1>
@@ -359,6 +372,8 @@
 		var conocoData=[];
 		var chevronData = [];
 		var color = d3.scaleOrdinal(d3.schemeCategory20);
+		var stations = ["42390","42394","42874","42901","42874","42901","42370","42374","42880","42887","42396","42876","42912","42934","42927","42931","42368"]
+
 		//var color =d3. scaleSequential(d3.interpolateInferno).domain([0,20]);
 		for(var i = 0; i < bothData.length; i++){
 			if(bothData[i]["Owner"] === "SHELL"){
@@ -450,6 +465,11 @@
 						return color(d.Id);		
 					}
 				});
+				bars.append("line")
+    			.attr("x1", 100)
+    			.attr("y1", 0 )
+    			.attr("x2", 100)
+    			.attr("y2", height);
 			//left axis
 			chart.select('.y')
 				  .call(yAxis)
@@ -464,14 +484,14 @@
 					.attr("transform", function(d){
 						return "rotate(-65)";
 					});
+
 					
 		}//end update
 
 		//set up chart
-		var margin = {top: 20, right: 20, bottom: 95, left: 50};
-		var width = 800;
-		var height = 500;
-
+		var margin = {top: 20, right: 200, bottom: 40, left: 100};
+		var width = 1000-margin.left;
+		var height = 400;
 		var chart = d3.select("ccontent").append("svg")
 						.attr("width", width + margin.left + margin.right)
 						.attr("height", height + margin.top + margin.bottom)
@@ -496,7 +516,7 @@
 			//bottom axis
 			chart.append("g")
 				.attr("class", "xAxis")
-				.attr("transform", "translate(0," + height + ")")
+				.attr("transform", "translate(0," + height-10 + ")")
 				.call(xAxis)
 				.selectAll("text")
 					.style("text-anchor", "end")
@@ -514,8 +534,34 @@
 				
 		chart
 			.append("text")
-			.attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom - 5) + ")")
+			.attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom  ) + ")")
 			.text("Month");
+	
+        var legend =d3.select("svg")
+        	.append("g")
+        	.selectAll("g")
+        	.data(stations.slice())
+        	.enter().append("g")
+        	.attr("class","legend")
+            .attr("transform", function (d, i) {
+            {
+                return "translate(0," + i * 20 + ")"
+            }
+        });
+
+
+        	legend.append("rect")
+        	.attr("x", width+150)
+        	.attr("width", 18)
+        	.attr("height", 18)
+        	.style("fill", color);
+
+       		legend.append("text")
+        	.attr("x", width +200)
+        	.attr("y", 9)
+        	.attr("dy", ".35em")
+        	.style("text-anchor", "start")
+        	.text(function(d) { return d; });
 
 		//use bothData to begin with
 		update(bothData);
@@ -533,7 +579,7 @@
 		  $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
 		});
 		</script>
-		
+
     </body>
 	
 </html>

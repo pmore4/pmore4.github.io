@@ -143,9 +143,9 @@ d3.csv("DepthRange.csv", function(error, data) {
       //.attr("transform", function(d, i) { return "translate(0," + (i * d/5) + ")"; });
 
   legendcircle.append("circle")
-      .attr("cx", width + 37)
+      .attr("cx", width + 35)
       .attr("cy", offset + 189 )
-      .attr("r",5)
+      .attr("r",2)
       .style("stroke","black")
       .style("fill","none");
     // label the circles
@@ -157,13 +157,13 @@ d3.csv("DepthRange.csv", function(error, data) {
       .text("8M");
   
   legendcircle.append("circle")
-      .attr("cx", width + 37)
+      .attr("cx", width + 35)
 	    .attr("cy",offset + 209 )
-      .attr("r",16)
+      .attr("r",11)
       .style("stroke","black")
 	    .style("fill","none");
   legendcircle.append("text")
-      .attr("x", width+50)
+      .attr("x", width+22)
       .attr("y",offset + 200)
       .attr("dy", "1em")
       .style("text-anchor", "end")
@@ -172,11 +172,11 @@ d3.csv("DepthRange.csv", function(error, data) {
   legendcircle.append("circle")
       .attr("cx", width +35)
       .attr("cy",offset + 250 )
-      .attr("r",25)
+      .attr("r",22)
       .style("stroke","black")
       .style("fill","none");
   legendcircle.append("text")
-      .attr("x", width+55)
+      .attr("x", width+10)
       .attr("y",offset + 241)
       .attr("dy", "1em")
       .style("text-anchor", "end")
@@ -185,11 +185,11 @@ d3.csv("DepthRange.csv", function(error, data) {
   legendcircle.append("circle")
       .attr("cx", width +35)
       .attr("cy", offset + 310 )
-      .attr("r",35)
+      .attr("r",33)
       .style("stroke","black")
       .style("fill","none");
   legendcircle.append("text")
-      .attr("x", width+55)
+      .attr("x", width)
       .attr("y", offset + 301)
       .attr("dy", "1em")
       .style("text-anchor", "end")

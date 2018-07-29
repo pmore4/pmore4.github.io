@@ -47,7 +47,7 @@
 	.tooltip2 {
 	position: absolute;
 	text-align: center;
-	width: 60px;
+	width: 85px;
 	height: 60px;
 	padding: 2px;
 	font: 12px sans-serif;
@@ -84,32 +84,36 @@
 
 <div class="tabbable">
     <ul class="nav nav-pills nav-justified">
-        <li class="active"><a class="atab" href="#a_tab" data-toggle="tab">Distribution of Data Collected</a></li>
+        <li class="active">
         <li><a class="btab" href="#b_tab" data-toggle="tab">Depth Range Distribution</a></li>
 		<li><a class="ctab" href="#c_tab" data-toggle="tab">Sensor Effectiveness</a></li>
 		<li><a class="dtab" href="#d_tab" data-toggle="tab">About Essay</a></li>				
     </ul>
 
     <div class="tab-content">
-        <div class="tab-pane active" id="a_tab">
+        <div class="tab-pane " id="a_tab">
             <h1>Distribution of Data Collected by Station ID</h1>
             <acontent></acontent>
         </div>
-        <div class="tab-pane" id="b_tab">
+        <div class="tab-pane active " id="b_tab">
             <h1>Depth Range Distribution by Station ID</h1>
+           	<p id="p1">The use of current sensors for tracking the current velocity under water is widely used offshore by scientific institutions and oil field companies.They report the velocity as well as data health metrics such as "%Good" that tells us the percent of good quality data collected. The %Good is the ratio of data that passed quality checks and total data collected.   </p>
+           	<p id="p2">This plot of percent of Good data collected at different offshore Stations show the correlation between percent good and the effectiveness of the sensor. The effectiveness is defined in terms of the depth range the sensor can read current velocity. </p>
+
             <bcontent></bcontent>
         </div>
 		<div class="tab-pane" id="c_tab">
-            <h1>Sensor Effectiveness in 2017</h1>
+            <h1>Sensor Effectiveness in 2017 by Owner</h1>
+            <p id="p2">The current sensor's effectiveness can be effected by many factors. One of the main reason for poor readings is environmental. Examining the effectiveness at different Stations in terms of time we can see that Hurricanes played a large role in sensors collecting bad data or being removed.</p>
             <ccontent></ccontent>
 
         </div>
 		<div class="tab-pane" id="d_tab">
             <h1>About Essay</h1>
-			<p id="p1"></p>
-			<p id="p2"></p>
-			<p id="p3"></p>
-			<p id="p4"></p>
+			<p id="p"></p>
+			<p id="p"></p>
+			<p id="p"></p>
+			<p id="p"></p>
             <dcontent></dcontent>
         </div>
     </div>
@@ -157,9 +161,9 @@
                 cache: false
             });
         	document.getElementById('y').style.display = 'none';
-            $.getScript("a.js");
-            $(".atab").click(function() {
-                $.getScript("a.js");
+            $.getScript("b.js");
+            $(".btab").click(function() {
+                $.getScript("b.js");
                 document.getElementById('y').style.display = 'none';
 
             })
@@ -493,8 +497,8 @@
 				    tooltip2.transition()
 				    .duration(200)
 				    .style("opacity", .9);
-				    tooltip2.html(d.Owner + "<br/> (" + d.Id 
-					        + ", " + d.Percent + ")")
+				    tooltip2.html(d.Owner + "<br/>ID: " + d.Id + "<br/>" 
+					        + "%Good: " + d.Percent )
 				        .style("left", (d3.event.pageX + 5) + "px")
 				        .style("top", (d3.event.pageY - 28) + "px");
 				      })
